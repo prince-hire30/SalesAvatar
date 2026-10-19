@@ -1,0 +1,113 @@
+import React from 'react';
+import { 
+  Users, 
+  Filter, 
+  TrendingUp, 
+  ArrowRight, 
+  Sparkles, 
+  Rocket 
+} from 'lucide-react';
+
+export default function HowItWorksSection() {
+  const steps = [
+    {
+      num: 1,
+      numColor: '#8b5cf6',
+      iconBg: '#f3e8ff',
+      iconColor: '#7c3aed',
+      icon: Users,
+      title: 'Register & Select Plan',
+      desc: 'Choose Starter, Professional, or Enterprise and provision your company tenant'
+    },
+    {
+      num: 2,
+      numColor: '#3b82f6',
+      iconBg: '#eff6ff',
+      iconColor: '#2563eb',
+      icon: Filter,
+      title: 'Onboard Team & Modules',
+      desc: 'Set role-based permissions, configure pipelines, and import customer records'
+    },
+    {
+      num: 3,
+      numColor: '#8b5cf6',
+      iconBg: '#f3e8ff',
+      iconColor: '#7c3aed',
+      icon: TrendingUp,
+      title: 'Manage, Track & Scale',
+      desc: 'Execute follow-ups, field GPS attendance, sales targets, and subscription renewals'
+    }
+  ];
+
+  return (
+    <section className="how-it-works-section">
+      <div className="how-it-works-container">
+        {/* Top Header */}
+        <div className="section-center-header">
+          <div className="section-pill-badge purple">
+            <Sparkles size={13} />
+            <span>HOW IT WORKS</span>
+          </div>
+          <h2 className="section-main-title">Get Started in 3 Simple Steps</h2>
+          <p className="section-main-subtitle">
+            Start managing your sales team in minutes. No complex setup, no technical knowledge needed.
+          </p>
+        </div>
+
+        {/* Steps Flow Row */}
+        <div className="steps-flow-row">
+          {steps.map((s, idx) => {
+            const Icon = s.icon;
+            return (
+              <React.Fragment key={s.num}>
+                <div className="step-card-item">
+                  <div className="step-badge-number" style={{ background: s.numColor }}>
+                    {s.num}
+                  </div>
+                  <div className="step-content-card">
+                    <div className="step-icon-box" style={{ background: s.iconBg }}>
+                      <Icon size={24} color={s.iconColor} strokeWidth={2.3} />
+                    </div>
+                    <div className="step-text-wrap">
+                      <h4 className="step-title">{s.title}</h4>
+                      <p className="step-desc">{s.desc}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Connecting arrow if not last */}
+                {idx < steps.length - 1 && (
+                  <div className="step-connector-arrow">
+                    <ArrowRight size={22} color="#94a3b8" />
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+
+          {/* End Callout: Rocket with dashed curve */}
+          <div className="ready-grow-callout">
+            <div className="curved-dashed-arrow">
+              <svg viewBox="0 0 70 30" className="curve-svg">
+                <path 
+                  d="M 5,25 Q 35,-5 65,18" 
+                  fill="none" 
+                  stroke="#818cf8" 
+                  strokeWidth="2" 
+                  strokeDasharray="4 4" 
+                />
+              </svg>
+            </div>
+            <div className="rocket-bubble">
+              <Rocket size={24} color="#6366f1" className="rocket-icon" />
+            </div>
+            <span className="ready-grow-text">
+              And You're Ready <br />
+              <strong>to Grow! &#128640;</strong>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
