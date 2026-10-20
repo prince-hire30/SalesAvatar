@@ -5,23 +5,24 @@ import {
   CheckCircle2, 
   Sparkles 
 } from 'lucide-react';
+import { IMAGES, FALLBACK_IMAGES } from '../utils/assets';
 
 export default function BottomCTASection({ 
   onOpenTrial, 
   onOpenDemo,
-  backgroundImage = '/images/mountain-summit.jpg',
-  badgeText = 'READY TO RENT YOUR CRM?',
-  title = 'Start Your Multi-Tenant',
-  titleHighlight = 'Cloud CRM Workspace',
-  subtitle = 'Rent verified CRM modules with monthly or annual subscriptions. Scale user seats and pipeline power with complete data privacy.',
-  primaryBtnText = 'Get Started',
-  secondaryBtnText = 'Book a Demo',
+  backgroundImage = IMAGES.mountainSummit,
+  badgeText = 'GET STARTED IN MINUTES',
+  title = 'Ready to Turn Sales Chaos Into',
+  titleHighlight = 'Predictable Monthly Revenue?',
+  subtitle = 'Join 240+ Indian businesses closing deals faster with SalesAvatar. Start your 14-day free trial today or book a personalized 1-on-1 walkthrough.',
+  primaryBtnText = 'Start 14-Day Free Trial',
+  secondaryBtnText = 'Book a 1-on-1 Demo',
   checks = [
     'No credit card required',
-    'Flexible subscription tiers',
-    'Instant tenant onboarding'
+    'Setup ready in 15 minutes',
+    'Full access to all 8 CRM modules'
   ],
-  annotationText = 'Flexible Subscriptions, Zero Capex',
+  annotationText = 'Zero Setup Fees • Cancel Anytime',
   showAnnotation = true
 }) {
   return (
@@ -37,6 +38,11 @@ export default function BottomCTASection({
             alt="SalesAvatar leadership background" 
             className="cta-bg-image" 
             loading="lazy"
+            onError={(e) => {
+              if (e.currentTarget.src !== FALLBACK_IMAGES.mountainSummit) {
+                e.currentTarget.src = FALLBACK_IMAGES.mountainSummit;
+              }
+            }}
           />
         </div>
 

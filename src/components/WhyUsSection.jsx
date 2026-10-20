@@ -6,16 +6,17 @@ import {
   MapPin,
   LineChart,
   Crown,
-  Sparkles,
   ArrowUpRight
 } from 'lucide-react';
+import { IMAGES, FALLBACK_IMAGES } from '../utils/assets';
 
 export default function WhyUsSection() {
   // Array of dummy images that dynamically change
   const dynamicPersonas = [
     {
       id: 1,
-      image: '/images/businessman-1.jpg',
+      image: IMAGES.businessman1,
+      fallback: FALLBACK_IMAGES.businessman1,
       name: 'Prince',
       role: 'Chief Sales Officer',
       badges: [
@@ -26,7 +27,8 @@ export default function WhyUsSection() {
     },
     {
       id: 2,
-      image: '/images/businesswoman-2.jpg',
+      image: IMAGES.businesswoman2,
+      fallback: FALLBACK_IMAGES.businesswoman2,
       name: 'Ananya Sharma',
       role: 'VP of Enterprise Sales',
       badges: [
@@ -37,7 +39,8 @@ export default function WhyUsSection() {
     },
     {
       id: 3,
-      image: '/images/businessman-3.jpg',
+      image: IMAGES.businessman3,
+      fallback: FALLBACK_IMAGES.businessman3,
       name: 'Rahul Kapoor',
       role: 'Director of Sales Operations',
       badges: [
@@ -141,6 +144,11 @@ export default function WhyUsSection() {
                 src={persona.image}
                 alt={persona.name}
                 className={`persona-image ${idx === currentIndex ? 'active' : ''}`}
+                onError={(e) => {
+                  if (persona.fallback && e.currentTarget.src !== persona.fallback) {
+                    e.currentTarget.src = persona.fallback;
+                  }
+                }}
               />
             ))}
 
@@ -185,17 +193,17 @@ export default function WhyUsSection() {
         {/* Right Side: Copy & 6 Feature Benefit Cards */}
         <div className="why-us-content">
           <div className="why-us-badge">
-            <Sparkles size={14} className="badge-icon" />
-            <span>WHY RENT OUR CLOUD CRM?</span>
+            <span className="badge-dot-indicator"></span>
+            <span>THE MODERN WAY TO RUN SALES</span>
           </div>
 
           <h2 className="why-us-title">
-            Everything your sales team needs <br />
-            <span className="gradient-text">On a predictable subscription</span>
+            Built for Indian Field & Desk Teams <br />
+            <span className="gradient-text">Without Legacy ERP Complexity</span>
           </h2>
 
           <p className="why-us-subtitle">
-            Eliminate massive upfront software costs and server headaches. Rent verified CRM modules that scale as your business expands.
+            Most software forces you into costly multi-year lock-ins or slow foreign interfaces. SalesAvatar is designed for practical, fast-moving Indian teams — flexible monthly rental, instant GPS mobile proof, and zero IT headaches.
           </p>
 
           {/* 6 Benefit Cards Grid */}

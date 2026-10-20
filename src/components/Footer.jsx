@@ -9,12 +9,7 @@ import {
   ArrowRight,
   CheckCircle2,
   ShieldCheck,
-  Lock,
-  Linkedin,
-  Twitter,
-  Instagram,
-  Youtube,
-  MessageCircle
+  Lock
 } from 'lucide-react';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -99,7 +94,7 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
             </Link>
 
             <p className="footer-desc">
-              Multi-tenant cloud CRM rental and subscription platform. Rent lead management, customer 360°, visual sales pipelines, and field officer tracking on flexible monthly or annual plans.
+              Multi-tenant cloud CRM rental platform. Rent authentic lead management, deal approvals, 20-stage project site tracking, field GPS attendance, and sales quotas on flexible monthly or annual plans.
             </p>
 
             <div className="footer-contact-items">
@@ -135,25 +130,59 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
             <h4 className="footer-heading">CRM Modules</h4>
             <ul className="footer-links">
               <li>
-                <Link to="/features#leads" title="Capture and organize inbound sales leads">
+                <Link to="/features#leads" title="Capture and organize 1,248+ inbound sales leads">
                   Lead Management
-                  <span className="link-badge hot">CORE</span>
+                  <span className="link-badge core">CORE</span>
                 </Link>
               </li>
               <li>
-                <Link to="/features#customers" title="Customer 360 profiles & communication history">
+                <Link to="/features#customers" title="Customer 360 profiles & communication history timeline">
                   Customer 360° Records
                 </Link>
               </li>
               <li>
-                <Link to="/features#followup" title="Never miss a lead with automated reminder alerts">
+                <Link to="/features#followup" title="Automated calling queue with due and overdue alerts">
                   Follow-up Tasks & Reminders
-                  <span className="link-badge pop">HOT</span>
+                  <span className="link-badge hot">HOT</span>
                 </Link>
               </li>
               <li>
-                <Link to="/features#pipeline" title="Visual Kanban sales stages & forecasted revenue">
+                <Link to="/features#pipeline" title="Visual sales pipeline stages & lead interest distribution">
                   Visual Sales Pipeline
+                </Link>
+              </li>
+              <li>
+                <Link to="/crm-tour?screen=deal-approvals" title="Contract value & discount percentage authorization center">
+                  Deal & Won Approvals
+                  <span className="link-badge pop">POPULAR</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/features#targets" title="Executive ₹4.80 Cr milestone targets & rep quotas">
+                  Sales Team Quotas & Targets
+                </Link>
+              </li>
+              <li>
+                <Link to="/features#analytics" title="Executive BI dashboards, attribution & drop-off analytics">
+                  Reports & Revenue Analytics
+                </Link>
+              </li>
+              <li>
+                <Link to="/crm-tour?screen=sales-leaderboard" title="Winner of the month podium & sales hall of fame">
+                  Monthly Rep Leaderboard
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Solutions Links - Real Operations from Platform Screenshots */}
+          <div className="footer-col">
+            <h4 className="footer-heading">Operations & Suite</h4>
+            <ul className="footer-links">
+              <li>
+                <Link to="/crm-tour?screen=project-sites" title="28 client project sites across 20-stage handover journey">
+                  Project Sites & Handover
+                  <span className="link-badge auto">20-STAGE</span>
                 </Link>
               </li>
               <li>
@@ -163,50 +192,34 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
                 </Link>
               </li>
               <li>
-                <Link to="/features#dealers" title="Channel partner orders & territory fulfillments">
-                  Dealer & Distributor Network
+                <Link to="/crm-tour?screen=attendance-tracking" title="Live daily punch register, late marks & monthly attendance calendar">
+                  Employee Daily Punch Log
                 </Link>
               </li>
               <li>
-                <Link to="/features#targets" title="Quotas, closing ratios & live rep leaderboards">
-                  Sales Team Quotas & Targets
+                <Link to="/crm-tour?screen=marketing-integrations" title="Meta Facebook & Instagram Lead Ads instant webhook sync">
+                  Meta Lead Ads Automation
+                  <span className="link-badge new">SYNC</span>
                 </Link>
               </li>
               <li>
-                <Link to="/features#analytics" title="Dashboards, conversion bottlenecks & scheduled reports">
-                  Reports & Revenue Analytics
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Solutions Links - Tailored Industry Workflows */}
-          <div className="footer-col">
-            <h4 className="footer-heading">Industries</h4>
-            <ul className="footer-links">
-              <li>
-                <Link to="/solutions#manufacturing" title="Supply chain pipelines, plant visits & bulk orders">
-                  Manufacturing & Distribution
+                <Link to="/crm-tour?screen=master-settings" title="WhatsApp Business API messaging & webhook automation">
+                  WhatsApp Business Suite
                 </Link>
               </li>
               <li>
-                <Link to="/solutions#real-estate" title="Portal leads, site visit check-ins & broker commission">
-                  Real Estate & Developers
+                <Link to="/crm-tour?screen=workspace-chat" title="Internal 1-on-1 and channel messaging with deal card sharing">
+                  Workspace Team Chat
                 </Link>
               </li>
               <li>
-                <Link to="/solutions#field" title="Geofenced retailer visits, route tracking & attendance">
-                  Field Sales & FMCG
+                <Link to="/crm-tour?screen=company-feed" title="Internal social wall for work anniversaries and big wins">
+                  Company Social Feed
                 </Link>
               </li>
               <li>
-                <Link to="/solutions#dealerships" title="Wholesale order quotes with volume price tiers">
-                  Traders & Wholesale Dealerships
-                </Link>
-              </li>
-              <li>
-                <Link to="/solutions#b2b" title="Visual deal velocity pipeline tracking consultative deals">
-                  B2B Corporate Services
+                <Link to="/crm-tour?screen=my-storage" title="Sales collateral, brochures, rate cards and pitch deck cloud vault">
+                  Sales Collateral Vault
                 </Link>
               </li>
               <li>
@@ -227,7 +240,13 @@ export default function Footer({ onOpenLogin, onOpenDemo, onOpenTrial, onOpenEnt
           <div className="footer-col">
             <h4 className="footer-heading">Platform</h4>
             <ul className="footer-links">
-              <li><Link to="/why-us" title="Why subscription CRM beats heavy legacy software">Why Rent a Cloud CRM</Link></li>
+              <li>
+                <Link to="/crm-tour" title="Take a visual tour of our complete cloud CRM platform with 15+ live screens">
+                  Live CRM Product Tour
+                  <span className="link-badge live">15+ SCREENS</span>
+                </Link>
+              </li>
+              <li><Link to="/why-us" title="Why subscription CRM rental beats heavy legacy software">Why Rent a Cloud CRM</Link></li>
               <li><Link to="/pricing" title="Explore monthly and annual subscription tiers">Monthly & Annual Plans</Link></li>
               <li><Link to="/testimonials" title="Read verified client case studies and feedback">Subscriber Case Studies</Link></li>
               <li><Link to="/faq" title="Answers to common questions about deployment and billing">Frequently Asked Questions</Link></li>

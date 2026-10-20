@@ -4,7 +4,6 @@ import {
   Filter, 
   TrendingUp, 
   ArrowRight, 
-  Sparkles, 
   Rocket 
 } from 'lucide-react';
 
@@ -45,12 +44,12 @@ export default function HowItWorksSection() {
         {/* Top Header */}
         <div className="section-center-header">
           <div className="section-pill-badge purple">
-            <Sparkles size={13} />
-            <span>HOW IT WORKS</span>
+            <Rocket size={13} color="#7c3aed" />
+            <span>FAST ONBOARDING</span>
           </div>
-          <h2 className="section-main-title">Get Started in 3 Simple Steps</h2>
+          <h2 className="section-main-title">Up and Running in Under 15 Minutes</h2>
           <p className="section-main-subtitle">
-            Start managing your sales team in minutes. No complex setup, no technical knowledge needed.
+            No expensive consultants. No complex coding. Here's how quickly your team can ditch messy spreadsheets and start closing deals.
           </p>
         </div>
 

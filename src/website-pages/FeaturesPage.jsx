@@ -10,9 +10,14 @@ import {
   Check, 
   ArrowRight, 
   Sparkles, 
-  ShieldCheck
+  ShieldCheck,
+  Maximize2,
+  Eye
 } from 'lucide-react';
 import BottomCTASection from '../components/BottomCTASection';
+import CrmProductGallery from '../components/CrmProductGallery';
+import CrmLightboxModal from '../components/CrmLightboxModal';
+import { CRM_SCREENSHOTS, getScreenshotUrl } from '../data/crmScreenshots';
 
 const featureList = [
     {
@@ -23,6 +28,9 @@ const featureList = [
       icon: Users,
       color: '#10b981',
       bgLight: '#ecfdf5',
+      screenshotFile: 'ef397b13-affc-4018-9693-fabea53c0aaa.jpg',
+      screenshotScreenId: 'sales-leads-table',
+      screenshotTitle: '1,248+ Leads Directory & Multi-Stage Table',
       desc: 'Capture and organize inbound sales leads automatically from web forms, ad campaigns, and incoming inquiries with instant deduplication.',
       points: [
         'Instant round-robin or territory-based auto-assignment',
@@ -39,6 +47,9 @@ const featureList = [
       icon: Users,
       color: '#06b6d4',
       bgLight: '#ecfeff',
+      screenshotFile: '14c4bfbc-4c28-404d-a836-213b1e0d9519.jpg',
+      screenshotScreenId: 'lead-detail-timeline',
+      screenshotTitle: 'Lead Profile & Call/WhatsApp Activity Timeline',
       desc: 'Complete customer profiles with centralized contact details, transaction records, past orders, file attachments, and communication timelines.',
       points: [
         'Centralized customer directory with company hierarchy',
@@ -55,6 +66,9 @@ const featureList = [
       icon: Filter,
       color: '#2563eb',
       bgLight: '#eff6ff',
+      screenshotFile: '6766b2b0-f170-47b7-b227-70f5f2c2d8dc.jpg',
+      screenshotScreenId: 'dashboard-overview',
+      screenshotTitle: 'Pipeline Funnel & Lead Interest Distribution',
       desc: 'Track every deal across customizable stages: New Lead, Contacted, Qualified, Proposal Sent, Negotiation, and Won.',
       points: [
         'Visual Kanban stages with total deal revenue metrics',
@@ -71,6 +85,9 @@ const featureList = [
       icon: Calendar,
       color: '#7c3aed',
       bgLight: '#f3e8ff',
+      screenshotFile: '96d04885-5c0b-44a5-bfa0-c637795ba64d.jpg',
+      screenshotScreenId: 'followup-queue',
+      screenshotTitle: 'Due Follow-Ups & One-Click Calling Queue',
       desc: 'Never let a warm prospect go cold. Schedule calls, meetings, and follow-up alerts with automated reminders for sales reps and managers.',
       points: [
         'Push notifications, SMS, and email alerts prior to calls',
@@ -87,6 +104,9 @@ const featureList = [
       icon: MapPin,
       color: '#f97316',
       bgLight: '#fff7ed',
+      screenshotFile: 'fd86ccb8-add2-4a4e-a1b4-badb0740a7cd.jpg',
+      screenshotScreenId: 'attendance-tracking',
+      screenshotTitle: 'Employee Attendance & Daily Punch Register',
       desc: 'Track on-field sales representatives with GPS location stamping, selfie verification, client site check-ins, and conveyance tracking.',
       points: [
         'Geofenced mobile check-in & check-out at client properties',
@@ -103,6 +123,9 @@ const featureList = [
       icon: Filter,
       color: '#8b5cf6',
       bgLight: '#f5f3ff',
+      screenshotFile: 'd5b197d3-4fcf-477a-8e7f-a567647cd704.jpg',
+      screenshotScreenId: 'project-sites',
+      screenshotTitle: 'Project Sites & 20-Stage Handover Progress',
       desc: 'Manage authorized dealer networks, distributor orders, territory assignments, and partner sales fulfillment in a unified hub.',
       points: [
         'Dealer profiles, credit terms, and regional territory allocation',
@@ -119,6 +142,9 @@ const featureList = [
       icon: Trophy,
       color: '#eab308',
       bgLight: '#fefce8',
+      screenshotFile: 'a6fccb54-6ca5-44ea-84b8-bad25878ac35.jpg',
+      screenshotScreenId: 'executive-goals',
+      screenshotTitle: 'Executive ₹4.80 Cr Target & Quota Pacing',
       desc: 'Set and track individual and team sales targets. Monitor closing ratios, rep velocity, and celebrate milestones transparently.',
       points: [
         'Monthly and quarterly sales target setting by rep and team',
@@ -135,6 +161,9 @@ const featureList = [
       icon: BarChart2,
       color: '#10b981',
       bgLight: '#ecfdf5',
+      screenshotFile: '83161ec4-f704-4a73-acfc-15e759c7a704.jpg',
+      screenshotScreenId: 'pipeline-analytics',
+      screenshotTitle: 'Executive Pipeline Analytics & Attribution',
       desc: 'Transform sales activity into actionable insights. Real-time dashboards, conversion bottleneck detection, and exportable reports.',
       points: [
         'Interactive dashboards with date range, team, and territory filters',
@@ -147,7 +176,17 @@ const featureList = [
 
 export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
   const location = useLocation();
+
+  const handleOpenScreenshot = (screenId) => {
+    const idx = CRM_SCREENSHOTS.findIndex((s) => s.id === screenId);
+    if (idx !== -1) {
+      setLightboxIndex(idx);
+      setLightboxOpen(true);
+    }
+  };
 
   useEffect(() => {
     if (location.hash) {
@@ -326,6 +365,7 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
           <div className="features-detailed-grid">
             {filteredFeatures.map(f => {
               const Icon = f.icon;
+              const imgUrl = f.screenshotFile ? getScreenshotUrl(f.screenshotFile) : null;
               return (
                 <div key={f.id} className="feature-detail-card" id={f.id}>
                   <div className="feature-card-header">
@@ -339,6 +379,31 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
 
                   <h3 className="feature-card-title">{f.title}</h3>
                   <p className="feature-card-desc">{f.desc}</p>
+
+                  {/* Real CRM Screen Visual Preview */}
+                  {imgUrl && (
+                    <div 
+                      className="feature-screen-preview-box"
+                      onClick={() => handleOpenScreenshot(f.screenshotScreenId)}
+                      title={`Inspect ${f.screenshotTitle} in full resolution`}
+                    >
+                      <div className="preview-top-bar">
+                        <span className="preview-tag">Verified Real Screen</span>
+                        <span className="preview-zoom-label">
+                          <Maximize2 size={12} /> Inspect
+                        </span>
+                      </div>
+                      <img 
+                        src={imgUrl} 
+                        alt={f.screenshotTitle || f.title} 
+                        className="feature-real-img"
+                        loading="lazy"
+                      />
+                      <div className="preview-screen-caption">
+                        {f.screenshotTitle}
+                      </div>
+                    </div>
+                  )}
 
                   <ul className="feature-points-list">
                     {f.points.map((pt, i) => (
@@ -358,6 +423,16 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
                       <span>Try this module</span>
                       <ArrowRight size={14} />
                     </button>
+                    {f.screenshotScreenId && (
+                      <button
+                        type="button"
+                        className="btn-card-screenshot"
+                        onClick={() => handleOpenScreenshot(f.screenshotScreenId)}
+                      >
+                        <Eye size={13} />
+                        <span>See Screen</span>
+                      </button>
+                    )}
                   </div>
                 </div>
               );
@@ -431,8 +506,25 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
         </div>
       </section>
 
+      {/* Embedded Real CRM Product Showcase (Complete Platform Tour) */}
+      <CrmProductGallery 
+        onOpenTrial={onOpenTrial}
+        onOpenDemo={onOpenDemo}
+      />
+
       {/* Bottom CTA */}
       <BottomCTASection 
+        onOpenTrial={() => onOpenTrial('Business')}
+        onOpenDemo={onOpenDemo}
+      />
+
+      {/* Lightbox Modal */}
+      <CrmLightboxModal
+        isOpen={lightboxOpen}
+        screenshots={CRM_SCREENSHOTS}
+        currentIndex={lightboxIndex}
+        onClose={() => setLightboxOpen(false)}
+        onNavigate={(idx) => setLightboxIndex(idx)}
         onOpenTrial={() => onOpenTrial('Business')}
         onOpenDemo={onOpenDemo}
       />

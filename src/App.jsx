@@ -6,6 +6,7 @@ import { TrialModal, DemoModal, LoginModal, EnterpriseModal } from './components
 
 // Multi-Page Website Components
 import HomePage from './website-pages/HomePage';
+import CrmTourPage from './website-pages/CrmTourPage';
 import FeaturesPage from './website-pages/FeaturesPage';
 import PricingPage from './website-pages/PricingPage';
 import WhyUsPage from './website-pages/WhyUsPage';
@@ -78,6 +79,24 @@ export default function App() {
                 onOpenTrial={handleOpenTrial}
                 onOpenDemo={() => setDemoModalOpen(true)}
                 onOpenEnterprise={handleOpenEnterprise}
+              />
+            }
+          />
+          <Route
+            path="/crm-tour"
+            element={
+              <CrmTourPage
+                onOpenTrial={handleOpenTrial}
+                onOpenDemo={() => setDemoModalOpen(true)}
+              />
+            }
+          />
+          <Route
+            path="/tour"
+            element={
+              <CrmTourPage
+                onOpenTrial={handleOpenTrial}
+                onOpenDemo={() => setDemoModalOpen(true)}
               />
             }
           />

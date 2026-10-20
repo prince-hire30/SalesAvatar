@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { 
   Check, 
   ArrowRight, 
-  Sparkles, 
   Zap, 
   BarChart2, 
   Crown, 
@@ -109,12 +108,12 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
         {/* Top Header */}
         <div className="section-center-header">
           <div className="section-pill-badge blue">
-            <Sparkles size={13} />
-            <span>FLEXIBLE PRICING</span>
+            <Zap size={13} color="#2563eb" />
+            <span>TRANSPARENT, HONEST PRICING</span>
           </div>
-          <h2 className="section-main-title">Multi-Tenant Cloud CRM Rental & Subscriptions</h2>
+          <h2 className="section-main-title">Simple Plans That Grow With Your Sales Team</h2>
           <p className="section-main-subtitle">
-            Rent by month or year. Instant onboarding, transparent user limits, and full data isolation.
+            Zero hidden fees. Zero implementation charges. Start with what you need today, and upgrade seats as your sales force expands.
           </p>
 
           {/* Monthly / Yearly Switcher */}

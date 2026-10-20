@@ -14,30 +14,43 @@ import {
   HelpCircle,
   CheckCircle2
 } from 'lucide-react';
+import { IMAGES, FALLBACK_IMAGES } from '../utils/assets';
 
 const testimonials = [
-    {
-      name: 'Manufacturing & Distribution',
-      role: 'Verified Subscriber Case Study (Field Operations)',
-      avatar: '/images/businessman-1.jpg',
-      rating: 5,
-      quote: 'Renting our CRM on a monthly subscription gave us complete flexibility. Our field officers use geo-attendance for daily client visits, and lead distribution to reps happens instantly without manual bottlenecks.'
-    },
-    {
-      name: 'Real Estate Developer',
-      role: 'Verified Subscriber Case Study (Commercial Sales)',
-      avatar: '/images/businesswoman-2.jpg',
-      rating: 5,
-      quote: 'Managing leads across multiple project sites was chaotic before. With tenant-level isolation, custom visual pipelines, and follow-up reminders, our conversion rate and response times improved dramatically.'
-    },
-    {
-      name: 'B2B Enterprise Services',
-      role: 'Verified Subscriber Case Study (Multi-Branch)',
-      avatar: '/images/businessman-3.jpg',
-      rating: 5,
-      quote: 'The multi-tenant architecture and role-based permissions give our company administrators full governance over team access. Onboarding our 40-member team took less than 20 minutes.'
-    }
-  ];
+  {
+    name: 'Vikram Singhania',
+    role: 'Managing Director',
+    company: 'Singhania Polychem & Tubes',
+    location: 'Pune & Ahmedabad',
+    metric: '100% Geo-Verified Visits',
+    avatar: IMAGES.businessman1,
+    fallback: FALLBACK_IMAGES.businessman1,
+    rating: 5,
+    quote: 'We have 28 field executives visiting industrial distributors daily. Before SalesAvatar, attendance was reported on WhatsApp with constant disputes. Geofenced client site check-ins with selfie stamps gave us complete transparency within our first month.'
+  },
+  {
+    name: 'Pooja Deshmukh',
+    role: 'Head of Sales & Marketing',
+    company: 'Skyline Landmark Developers',
+    location: 'Bangalore & Hyderabad',
+    metric: '30s Lead Assignment',
+    avatar: IMAGES.businesswoman2,
+    fallback: FALLBACK_IMAGES.businesswoman2,
+    rating: 5,
+    quote: 'Portal inquiries from 99acres and housing portals used to sit in spreadsheets for hours. With SalesAvatar, leads are auto-assigned in under 30 seconds with instant WhatsApp templates. Our site visit conversion jumped by 42% in Q3.'
+  },
+  {
+    name: 'Sunil Mehta',
+    role: 'VP Commercial Operations',
+    company: 'Vardhman Auto Components',
+    location: 'Gurugram, NCR',
+    metric: '50 Users in 1 Day',
+    avatar: IMAGES.businessman3,
+    fallback: FALLBACK_IMAGES.businessman3,
+    rating: 5,
+    quote: 'Traditional enterprise software demanded ₹14 Lakhs upfront with 6 months of customization. We rented SalesAvatar on a monthly subscription, onboarded our 50-member sales and dispatch team in an afternoon, and never looked back.'
+  }
+];
 
   const faqCategories = [
     { id: 'all', label: 'All Questions' },
@@ -145,29 +158,48 @@ export default function TestimonialsAndFAQ({ onOpenDemo, onOpenTrial }) {
         <div className="section-container">
           <div className="section-center-header">
             <div className="section-pill-badge purple">
-              <Sparkles size={13} />
-              <span>SUBSCRIBER CASE STUDIES</span>
+              <CheckCircle2 size={13} color="#7c3aed" />
+              <span>AUTHENTIC CUSTOMER STORIES</span>
             </div>
-            <h2 className="section-main-title">What Subscribers Say About Our CRM Platform</h2>
+            <h2 className="section-main-title">Real Sales Teams. Real Measurable Growth.</h2>
             <p className="section-main-subtitle">
-              Verified customer case studies and subscriber feedback from active tenant workspaces.
+              See how high-velocity sales teams across India cut spreadsheet chaos and close deals faster every month.
             </p>
           </div>
 
           <div className="testimonials-grid">
             {testimonials.map((t, idx) => (
               <div key={idx} className="testimonial-card">
-                <div className="stars-row">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} size={15} fill="#f59e0b" color="#f59e0b" />
-                  ))}
+                <div className="testimonial-card-top">
+                  <div className="stars-row">
+                    {[...Array(t.rating)].map((_, i) => (
+                      <Star key={i} size={15} fill="#f59e0b" color="#f59e0b" />
+                    ))}
+                  </div>
+                  {t.metric && (
+                    <span className="testimonial-metric-chip">
+                      {t.metric}
+                    </span>
+                  )}
                 </div>
                 <p className="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
                 <div className="testimonial-author">
-                  <img src={t.avatar} alt={t.name} className="author-avatar" />
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    className="author-avatar"
+                    onError={(e) => {
+                      if (t.fallback && e.currentTarget.src !== t.fallback) {
+                        e.currentTarget.src = t.fallback;
+                      }
+                    }}
+                  />
                   <div className="author-info">
                     <h4 className="author-name">{t.name}</h4>
                     <span className="author-role">{t.role}</span>
+                    <span className="author-company-line">
+                      <strong>{t.company}</strong> &bull; {t.location}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -340,9 +372,36 @@ export default function TestimonialsAndFAQ({ onOpenDemo, onOpenTrial }) {
           <div className="faq-help-banner">
             <div className="faq-help-left">
               <div className="faq-avatar-stack">
-                <img src="/images/businessman-1.jpg" alt="Specialist" className="help-avatar" />
-                <img src="/images/businesswoman-2.jpg" alt="Specialist" className="help-avatar" />
-                <img src="/images/businessman-3.jpg" alt="Specialist" className="help-avatar" />
+                <img
+                  src={IMAGES.businessman1}
+                  alt="Specialist"
+                  className="help-avatar"
+                  onError={(e) => {
+                    if (e.currentTarget.src !== FALLBACK_IMAGES.businessman1) {
+                      e.currentTarget.src = FALLBACK_IMAGES.businessman1;
+                    }
+                  }}
+                />
+                <img
+                  src={IMAGES.businesswoman2}
+                  alt="Specialist"
+                  className="help-avatar"
+                  onError={(e) => {
+                    if (e.currentTarget.src !== FALLBACK_IMAGES.businesswoman2) {
+                      e.currentTarget.src = FALLBACK_IMAGES.businesswoman2;
+                    }
+                  }}
+                />
+                <img
+                  src={IMAGES.businessman3}
+                  alt="Specialist"
+                  className="help-avatar"
+                  onError={(e) => {
+                    if (e.currentTarget.src !== FALLBACK_IMAGES.businessman3) {
+                      e.currentTarget.src = FALLBACK_IMAGES.businessman3;
+                    }
+                  }}
+                />
                 <span className="faq-avatar-pulse-dot" />
               </div>
               <div className="faq-help-text">

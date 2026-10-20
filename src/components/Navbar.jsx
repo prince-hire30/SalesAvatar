@@ -36,6 +36,13 @@ export default function Navbar({ onOpenTrial, onOpenLogin }) {
           <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Home
           </NavLink>
+          <NavLink 
+            to="/crm-tour" 
+            className={({ isActive }) => `nav-link nav-tour-pill ${isActive ? 'active' : ''}`}
+          >
+            <span className="live-dot-green"></span>
+            Live CRM Tour
+          </NavLink>
           <NavLink to="/features" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Features
           </NavLink>
@@ -81,6 +88,14 @@ export default function Navbar({ onOpenTrial, onOpenLogin }) {
       {mobileMenuOpen && (
         <div className="mobile-drawer">
           <NavLink to="/" end onClick={() => setMobileMenuOpen(false)}>Home</NavLink>
+          <NavLink 
+            to="/crm-tour" 
+            onClick={() => setMobileMenuOpen(false)} 
+            className={({ isActive }) => `mobile-nav-tour-link ${isActive ? 'active' : ''}`}
+            style={{ color: '#7c3aed', fontWeight: 700 }}
+          >
+            ✨ Live CRM Tour
+          </NavLink>
           <NavLink to="/features" onClick={() => setMobileMenuOpen(false)}>Features</NavLink>
           <NavLink to="/pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</NavLink>
           <NavLink to="/why-us" onClick={() => setMobileMenuOpen(false)}>Why Us</NavLink>
