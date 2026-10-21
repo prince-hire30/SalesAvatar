@@ -92,7 +92,7 @@ export default function Navbar({ onOpenTrial, onOpenLogin }) {
             to="/crm-tour" 
             onClick={() => setMobileMenuOpen(false)} 
             className={({ isActive }) => `mobile-nav-tour-link ${isActive ? 'active' : ''}`}
-            style={{ color: '#7c3aed', fontWeight: 700 }}
+            style={{ color: '#ea580c', fontWeight: 700 }}
           >
             ✨ Live CRM Tour
           </NavLink>

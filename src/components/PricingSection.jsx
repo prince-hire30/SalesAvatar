@@ -59,8 +59,8 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       users: 'Up to 20 users',
       storage: 'Advanced reports & analytics',
       highlight: 'Sales targets & role-based permissions',
-      themeColor: '#7c3aed',
-      bgLight: '#f3e8ff',
+      themeColor: '#ea580c',
+      bgLight: '#fff7ed',
       btnClass: 'btn-plan-purple',
       isPopular: true,
       popularLabel: 'Most Popular'
@@ -77,8 +77,8 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       users: 'Up to 50 users',
       storage: 'Field officer & geo-attendance',
       highlight: 'Dealer & distributor management',
-      themeColor: '#f97316',
-      bgLight: '#fff7ed',
+      themeColor: '#f59e0b',
+      bgLight: '#fffbeb',
       btnClass: 'btn-plan-orange',
       isPopular: false
     },
@@ -107,8 +107,8 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       <div className="pricing-container">
         {/* Top Header */}
         <div className="section-center-header">
-          <div className="section-pill-badge blue">
-            <Zap size={13} color="#2563eb" />
+          <div className="section-pill-badge purple">
+            <Zap size={13} color="#ea580c" />
             <span>TRANSPARENT, HONEST PRICING</span>
           </div>
           <h2 className="section-main-title">Simple Plans That Grow With Your Sales Team</h2>

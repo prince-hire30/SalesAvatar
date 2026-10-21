@@ -34,9 +34,9 @@ import {
   Maximize2,
   HelpCircle
 } from 'lucide-react';
-import { 
-  CRM_SCREENSHOTS, 
-  getScreenshotUrl 
+import {
+  CRM_SCREENSHOTS,
+  getScreenshotUrl
 } from '../data/crmScreenshots';
 import CrmLightboxModal from './CrmLightboxModal';
 
@@ -178,7 +178,7 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
 
           {/* Subtitle */}
           <p className="hero-subtitle">
-            The complete cloud CRM for modern sales teams. Capture incoming ad leads automatically, track field reps with geo-verified GPS check-ins, and forecast revenue with crystal clarity — starting at ₹999/month.
+            The all-in-one cloud CRM to automate leads, track field reps with GPS, and forecast sales with clarity.
           </p>
 
           {/* Trust Checkmarks */}
@@ -186,10 +186,6 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
             <div className="check-item">
               <CheckCircle2 size={16} className="check-icon" />
               <span>15-Minute Setup &bull; No Dev Required</span>
-            </div>
-            <div className="check-item">
-              <CheckCircle2 size={16} className="check-icon" />
-              <span>Mobile GPS Field Check-Ins</span>
             </div>
             <div className="check-item">
               <CheckCircle2 size={16} className="check-icon" />
@@ -217,51 +213,12 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
               Book a Live 1-on-1 Demo
             </button>
           </div>
-
-          {/* Social Proof Avatars & Rating */}
-          <div className="hero-social-proof">
-            <div className="avatar-stack">
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-                alt="Client 1"
-                className="avatar-img"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
-                alt="Client 2"
-                className="avatar-img"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80"
-                alt="Client 3"
-                className="avatar-img"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80"
-                alt="Client 4"
-                className="avatar-img"
-              />
-            </div>
-            <div className="social-proof-text">
-              <div className="proof-sub">
-                <strong>240+ Companies</strong> trust SalesAvatar daily
-              </div>
-              <div className="proof-stars">
-                <div className="stars-row">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} fill="#f59e0b" color="#f59e0b" />
-                  ))}
-                </div>
-                <span className="rating-score">4.9/5 from 1,800+ sales reps</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Right Column: Realistic Laptop Showcase with Live CRM Dashboard */}
         <div className="hero-right">
           {/* Floating Badge above laptop */}
-          <div 
+          <div
             className="floating-laptop-tag"
             onClick={() => {
               setLightboxIndex(0);
@@ -271,11 +228,11 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
             title="Click to explore the complete CRM application in full resolution"
           >
             <div className="tag-icon-ring">
-              <Sparkles size={14} color="#7c3aed" />
+              <Sparkles size={14} color="#ea580c" />
             </div>
             <div className="tag-text">
               <span className="tag-title">Explore Live CRM Platform &rarr;</span>
-              <span className="tag-subtitle">Click tabs on the left or click here for full tour</span>
+              <span className="tag-subtitle">Interactive Dashboard preview &bull; Click for full tour</span>
             </div>
           </div>
 
@@ -300,81 +257,48 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
 
                     {/* Nav Items List */}
                     <div className="crm-nav-list">
-                      <div
-                        className={`crm-nav-item ${sidebarItem === 'Dashboard' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('Dashboard')}
-                      >
+                      <div className="crm-nav-item active">
                         <Home size={12} className="crm-nav-icon" />
                         <span>Dashboard</span>
                       </div>
-                      <div
-                        className={`crm-nav-item ${sidebarItem === 'Workspace' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('Workspace')}
-                      >
+                      <div className="crm-nav-item">
                         <LayoutGrid size={12} className="crm-nav-icon" />
                         <span>Workspace</span>
                         <span className="crm-badge-red">3</span>
                       </div>
-                      <div
-                        className={`crm-nav-item ${sidebarItem === 'Sales' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('Sales')}
-                      >
+                      <div className="crm-nav-item">
                         <Briefcase size={12} className="crm-nav-icon" />
                         <span>Sales</span>
                       </div>
-                      <div
-                        className={`crm-nav-item ${sidebarItem === 'Deal approvals' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('Deal approvals')}
-                      >
+                      <div className="crm-nav-item">
                         <ShieldCheck size={12} className="crm-nav-icon" />
                         <span>Deal approvals</span>
                       </div>
-                      <div
-                        className={`crm-nav-item ${sidebarItem === 'LOB' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('LOB')}
-                      >
+                      <div className="crm-nav-item">
                         <Building2 size={12} className="crm-nav-icon" />
                         <span>LOB</span>
                       </div>
-                      <div
-                        className={`crm-nav-item ${sidebarItem === 'Project Sites' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('Project Sites')}
-                      >
+                      <div className="crm-nav-item">
                         <HardHat size={12} className="crm-nav-icon" />
                         <span>Project Sites</span>
                       </div>
-                      <div
-                        className={`crm-nav-item ${sidebarItem === 'Reports' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('Reports')}
-                      >
+                      <div className="crm-nav-item">
                         <BarChart2 size={12} className="crm-nav-icon" />
                         <span>Reports</span>
                       </div>
-                      <div
-                        className={`crm-nav-item ${sidebarItem === 'Goals' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('Goals')}
-                      >
+                      <div className="crm-nav-item">
                         <Target size={12} className="crm-nav-icon" />
                         <span>Goals</span>
                       </div>
-                      <div
-                        className={`crm-nav-item ${sidebarItem === 'Marketing' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('Marketing')}
-                      >
+                      <div className="crm-nav-item">
                         <Megaphone size={12} className="crm-nav-icon" />
                         <span>Marketing</span>
                       </div>
-                      <div
-                        className={`crm-nav-item ${sidebarItem === 'HR' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('HR')}
-                      >
+                      <div className="crm-nav-item">
                         <UserCheck size={12} className="crm-nav-icon" />
                         <span>HR</span>
                       </div>
-                      <div
-                        className={`crm-nav-item ${sidebarItem === 'WhatsApp' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('WhatsApp')}
-                      >
+                      <div className="crm-nav-item">
                         <MessageCircle size={12} className="crm-nav-icon" />
                         <span>WhatsApp</span>
                       </div>
@@ -383,24 +307,15 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
                     {/* TEAM Section */}
                     <div className="crm-sidebar-team-section">
                       <span className="crm-team-heading">TEAM</span>
-                      <div 
-                        className={`crm-nav-item ${sidebarItem === 'View Team' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('View Team')}
-                      >
+                      <div className="crm-nav-item">
                         <Users size={12} className="crm-nav-icon" />
                         <span>View Team</span>
                       </div>
-                      <div 
-                        className={`crm-nav-item ${sidebarItem === 'Help & Tickets' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('Help & Tickets')}
-                      >
+                      <div className="crm-nav-item">
                         <HelpCircle size={12} className="crm-nav-icon" />
                         <span>Help & Tickets</span>
                       </div>
-                      <div 
-                        className={`crm-nav-item ${sidebarItem === 'Settings' ? 'active' : ''}`}
-                        onClick={() => setSidebarItem('Settings')}
-                      >
+                      <div className="crm-nav-item">
                         <Settings size={12} className="crm-nav-icon" />
                         <span>Settings</span>
                       </div>
@@ -408,8 +323,8 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
 
                     {/* Full Product Tour Quick Button */}
                     <div className="crm-sidebar-tour-wrap">
-                      <button 
-                        type="button" 
+                      <button
+                        type="button"
                         className="crm-sidebar-tour-btn"
                         onClick={() => {
                           setLightboxIndex(0);
@@ -444,440 +359,437 @@ export default function HeroSection({ onOpenTrial, onOpenDemo }) {
 
                   {/* Main View Area */}
                   <div className="crm-main-area">
-                    {/* Top Screen Nav */}
-                    <div className="crm-top-nav">
-                      <div className="crm-top-left">
-                        <h2 className="crm-page-title">{sidebarItem}</h2>
-                        {sidebarItem === 'Dashboard' && (
-                          <div className="crm-view-mode-toggle">
-                            <button
-                              type="button"
-                              className={`crm-mode-btn ${dashboardMode === 'live' ? 'active' : ''}`}
-                              onClick={() => setDashboardMode('live')}
-                              title="Interactive Live UI"
-                            >
-                              Live UI
-                            </button>
-                            <button
-                              type="button"
-                              className={`crm-mode-btn ${dashboardMode === 'screenshot' ? 'active' : ''}`}
-                              onClick={() => setDashboardMode('screenshot')}
-                              title="Real CRM Application Screenshot"
-                            >
-                              Real Screen
-                            </button>
-                          </div>
-                        )}
-                        {sidebarItem !== 'Dashboard' && (
-                          <span className="crm-module-real-tag">Real CRM Screen</span>
-                        )}
-                      </div>
-                      <div className="crm-top-right">
-                        <button 
-                          type="button" 
-                          className="crm-icon-action crm-inspect-top-btn" 
-                          title="Inspect Screen in Full Resolution"
-                          onClick={() => handleOpenScreenshot()}
-                        >
-                          <Maximize2 size={13} />
-                        </button>
-                        <button className="crm-icon-action" title="Search">
-                          <Search size={13} />
-                        </button>
-                        <button className="crm-btn-plus" title="Add New">
-                          <Plus size={13} />
-                        </button>
-                        <button className="crm-icon-action" title="Download Reports">
-                          <Download size={13} />
-                        </button>
-                        <button className="crm-icon-action crm-bell-wrap" title="Notifications">
-                          <Bell size={13} />
-                          <span className="crm-notif-badge">5</span>
-                        </button>
-                        <div className="crm-nav-avatar-wrap">
-                          <img
-                            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80"
-                            alt="Alex"
-                            className="crm-nav-avatar"
-                          />
-                          <span className="crm-status-dot online"></span>
-                        </div>
-                      </div>
-                    </div>
-
                     {/* View Switcher: Interactive Live Dashboard OR Real Screenshot */}
                     {sidebarItem === 'Dashboard' && dashboardMode === 'live' ? (
-                      /* Main Content Scroll Area */
-                      <div className="crm-dashboard-scroll">
-                      {/* 1. Deals Approval Warning Banner */}
-                      <div className="crm-approval-banner">
-                        <div className="crm-approval-left">
-                          <div className="crm-approval-icon">
-                            <CheckCircle2 size={13} />
-                          </div>
-                          <div className="crm-approval-text">
-                            <span className="crm-approval-title">12 Deals waiting for amount approval</span>
-                            <span className="crm-approval-sub">Approve here so it counts toward the monthly goal.</span>
-                          </div>
-                        </div>
-                        <button className="crm-approval-btn">
-                          APPROVE &rarr;
-                        </button>
-                      </div>
-
-                      {/* 2. Welcome Greeting & Quick Action Pills */}
-                      <div className="crm-welcome-row">
-                        <div className="crm-welcome-text">
-                          <h1 className="crm-greeting">
-                            Good afternoon, <span className="greeting-name">Alex</span>
-                          </h1>
-                          <p className="crm-greeting-sub">
-                            Your pipeline at a glance <span className="crm-link-reports">View reports &rarr;</span>
-                          </p>
-                        </div>
-
-                        <div className="crm-action-pills">
-                          {/* Check in button */}
-                          <div className="crm-checkin-btn">
-                            <div className="checkin-icon-wrap">
-                              <Clock size={11} />
-                            </div>
-                            <div className="checkin-copy">
-                              <span className="checkin-label">START YOUR DAY</span>
-                              <span className="checkin-action">Check in &rarr;</span>
+                      <>
+                        {/* Top Screen Nav (only needed for live interactive dashboard) */}
+                        <div className="crm-top-nav">
+                          <div className="crm-top-left">
+                            <h2 className="crm-page-title">{sidebarItem}</h2>
+                            <div className="crm-view-mode-toggle">
                             </div>
                           </div>
-
-                          {/* Reports to manager */}
-                          <div className="crm-reports-to-pill">
-                            <UserCheck size={11} className="reports-to-icon" />
-                            <div className="reports-to-info">
-                              <span className="reports-to-label">REPORTS TO</span>
-                              <span className="reports-to-val"><strong>Demo</strong> (Manager)</span>
-                            </div>
-                            <Mail size={10} className="reports-to-mail" />
-                          </div>
-
-                          {/* Monthly Target: Sarah Lee */}
-                          <div className="crm-target-pill">
-                            <span className="target-pct-badge">%</span>
-                            <div className="target-copy">
-                              <span className="target-label">THIS MONTH TARGET</span>
-                              <div className="target-person">
-                                <img
-                                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=40&auto=format&fit=crop&q=80"
-                                  alt="Sarah Lee"
-                                  className="target-avatar"
-                                />
-                                <span className="target-name">Sarah Lee</span>
-                                <span className="target-arrow">&rsaquo;</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <button className="crm-settings-btn" title="Settings">
-                            <Settings size={12} />
-                          </button>
-                        </div>
-                      </div>
-
-                      {/* 3. Filter Tabs & Pivot Row */}
-                      <div className="crm-filter-bar">
-                        <div className="crm-segmented-tabs">
-                          {['Today', '7 days', '30 days', 'This month', 'All time', 'Custom'].map((tab) => (
+                          <div className="crm-top-right">
                             <button
-                              key={tab}
-                              className={`crm-tab-btn ${activeTab === tab ? 'active' : ''}`}
-                              onClick={() => setActiveTab(tab)}
+                              type="button"
+                              className="crm-icon-action crm-inspect-top-btn"
+                              title="Inspect Screen in Full Resolution"
+                              onClick={() => handleOpenScreenshot()}
                             >
-                              {tab}
+                              <Maximize2 size={13} />
                             </button>
-                          ))}
-                        </div>
-                        <button className="crm-pivot-btn">
-                          <Table size={11} />
-                          <span>Pivot</span>
-                        </button>
-                      </div>
-
-                      {/* 4. KPI Cards Row (6 Metric Cards) */}
-                      <div className="crm-kpi-row-6">
-                        {/* 1. New leads */}
-                        <div className="crm-kpi-box">
-                          <div className="kpi-box-header">
-                            <span className="kpi-box-icon"><Users size={11} /></span>
-                            <span className="kpi-box-title">New leads</span>
-                          </div>
-                          <div className="kpi-box-val">1,284</div>
-                          <div className="kpi-box-sub">This month</div>
-                        </div>
-
-                        {/* 2. Open pipeline */}
-                        <div className="crm-kpi-box">
-                          <div className="kpi-box-header">
-                            <span className="kpi-box-icon"><BarChart2 size={11} /></span>
-                            <span className="kpi-box-title">Open pipeline</span>
-                          </div>
-                          <div className="kpi-box-val">856</div>
-                          <div className="kpi-box-sub sub-teal">72% contacted</div>
-                        </div>
-
-                        {/* 3. To call */}
-                        <div className="crm-kpi-box">
-                          <div className="kpi-box-header">
-                            <span className="kpi-box-icon"><PhoneCall size={11} /></span>
-                            <span className="kpi-box-title">To call</span>
-                          </div>
-                          <div className="kpi-box-val">237</div>
-                          <div className="kpi-box-sub">Assigned, not worked</div>
-                        </div>
-
-                        {/* 4. Won */}
-                        <div className="crm-kpi-box">
-                          <div className="kpi-box-header">
-                            <span className="kpi-box-icon"><CheckCircle2 size={11} /></span>
-                            <span className="kpi-box-title">Won</span>
-                          </div>
-                          <div className="kpi-box-val">24</div>
-                          <div className="kpi-box-sub">189 lost</div>
-                        </div>
-
-                        {/* 5. Won value */}
-                        <div className="crm-kpi-box">
-                          <div className="kpi-box-header">
-                            <span className="kpi-box-icon"><IndianRupee size={11} /></span>
-                            <span className="kpi-box-title">Won value</span>
-                          </div>
-                          <div className="kpi-box-val">&#8377;12.8 L</div>
-                          <div className="kpi-box-sub">This month</div>
-                        </div>
-
-                        {/* 6. Follow-ups */}
-                        <div className="crm-kpi-box">
-                          <div className="kpi-box-header">
-                            <span className="kpi-box-icon"><Calendar size={11} /></span>
-                            <span className="kpi-box-title">Follow-ups</span>
-                          </div>
-                          <div className="kpi-box-val">418</div>
-                          <div className="kpi-box-sub">220 overdue &bull; 198 due</div>
-                        </div>
-                      </div>
-
-                      {/* 5. Two Main Dashboard Cards: PIPELINE FUNNEL & INTEREST LEVEL */}
-                      <div className="crm-bottom-cards-grid">
-                        {/* Panel Left: PIPELINE FUNNEL */}
-                        <div className="crm-panel-card">
-                          <div className="crm-panel-header">
-                            <div>
-                              <h3 className="crm-panel-title">PIPELINE FUNNEL</h3>
-                              <p className="crm-panel-sub">Leads by stage &bull; This month</p>
-                            </div>
-                          </div>
-
-                          <div className="crm-funnel-list">
-                            <div className="funnel-row">
-                              <span className="funnel-stage-name">New</span>
-                              <div className="funnel-track">
-                                <div className="funnel-bar bar-blue" style={{ width: '100%' }}></div>
-                              </div>
-                              <span className="funnel-stage-count">520</span>
-                            </div>
-
-                            <div className="funnel-row">
-                              <span className="funnel-stage-name">Contacted</span>
-                              <div className="funnel-track">
-                                <div className="funnel-bar bar-purple" style={{ width: '60%' }}></div>
-                              </div>
-                              <span className="funnel-stage-count">312</span>
-                            </div>
-
-                            <div className="funnel-row">
-                              <span className="funnel-stage-name">Not Connected</span>
-                              <div className="funnel-track">
-                                <div className="funnel-bar bar-pink" style={{ width: '38%' }}></div>
-                              </div>
-                              <span className="funnel-stage-count">198</span>
-                            </div>
-
-                            <div className="funnel-row">
-                              <span className="funnel-stage-name">Qualified</span>
-                              <div className="funnel-track">
-                                <div className="funnel-bar bar-orange" style={{ width: '28%' }}></div>
-                              </div>
-                              <span className="funnel-stage-count">146</span>
-                            </div>
-
-                            <div className="funnel-row">
-                              <span className="funnel-stage-name">Proposal</span>
-                              <div className="funnel-track">
-                                <div className="funnel-bar bar-yellow" style={{ width: '18%' }}></div>
-                              </div>
-                              <span className="funnel-stage-count">96</span>
-                            </div>
-
-                            <div className="funnel-row">
-                              <span className="funnel-stage-name">Negotiation</span>
-                              <div className="funnel-track">
-                                <div className="funnel-bar bar-green" style={{ width: '10%' }}></div>
-                              </div>
-                              <span className="funnel-stage-count">54</span>
+                            <button className="crm-icon-action" title="Search">
+                              <Search size={13} />
+                            </button>
+                            <button className="crm-btn-plus" title="Add New">
+                              <Plus size={13} />
+                            </button>
+                            <button className="crm-icon-action" title="Download Reports">
+                              <Download size={13} />
+                            </button>
+                            <button className="crm-icon-action crm-bell-wrap" title="Notifications">
+                              <Bell size={13} />
+                              <span className="crm-notif-badge">5</span>
+                            </button>
+                            <div className="crm-nav-avatar-wrap">
+                              <img
+                                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80"
+                                alt="Alex"
+                                className="crm-nav-avatar"
+                              />
+                              <span className="crm-status-dot online"></span>
                             </div>
                           </div>
                         </div>
 
-                        {/* Panel Right: INTEREST LEVEL */}
-                        <div className="crm-panel-card">
-                          <div className="crm-panel-header">
-                            <div>
-                              <h3 className="crm-panel-title">INTEREST LEVEL</h3>
-                              <p className="crm-panel-sub">Hot / Warm / Cold &bull; Leads worked &bull; This month</p>
+                        {/* Main Content Scroll Area */}
+                        <div className="crm-dashboard-scroll">
+                          {/* 1. Deals Approval Warning Banner */}
+                          <div className="crm-approval-banner">
+                            <div className="crm-approval-left">
+                              <div className="crm-approval-icon">
+                                <CheckCircle2 size={13} />
+                              </div>
+                              <div className="crm-approval-text">
+                                <span className="crm-approval-title">12 Deals waiting for amount approval</span>
+                                <span className="crm-approval-sub">Approve here so it counts toward the monthly goal.</span>
+                              </div>
+                            </div>
+                            <button className="crm-approval-btn">
+                              APPROVE &rarr;
+                            </button>
+                          </div>
+
+                          {/* 2. Welcome Greeting & Quick Action Pills */}
+                          <div className="crm-welcome-row">
+                            <div className="crm-welcome-text">
+                              <h1 className="crm-greeting">
+                                Good afternoon, <span className="greeting-name">Alex</span>
+                              </h1>
+                              <p className="crm-greeting-sub">
+                                Your pipeline at a glance <span className="crm-link-reports">View reports &rarr;</span>
+                              </p>
+                            </div>
+
+                            <div className="crm-action-pills">
+                              {/* Check in button */}
+                              <div className="crm-checkin-btn">
+                                <div className="checkin-icon-wrap">
+                                  <Clock size={11} />
+                                </div>
+                                <div className="checkin-copy">
+                                  <span className="checkin-label">START YOUR DAY</span>
+                                  <span className="checkin-action">Check in &rarr;</span>
+                                </div>
+                              </div>
+
+                              {/* Reports to manager */}
+                              <div className="crm-reports-to-pill">
+                                <UserCheck size={11} className="reports-to-icon" />
+                                <div className="reports-to-info">
+                                  <span className="reports-to-label">REPORTS TO</span>
+                                  <span className="reports-to-val"><strong>Demo</strong> (Manager)</span>
+                                </div>
+                                <Mail size={10} className="reports-to-mail" />
+                              </div>
+
+                              {/* Monthly Target: Sarah Lee */}
+                              <div className="crm-target-pill">
+                                <span className="target-pct-badge">%</span>
+                                <div className="target-copy">
+                                  <span className="target-label">THIS MONTH TARGET</span>
+                                  <div className="target-person">
+                                    <img
+                                      src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=40&auto=format&fit=crop&q=80"
+                                      alt="Sarah Lee"
+                                      className="target-avatar"
+                                    />
+                                    <span className="target-name">Sarah Lee</span>
+                                    <span className="target-arrow">&rsaquo;</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <button className="crm-settings-btn" title="Settings">
+                                <Settings size={12} />
+                              </button>
                             </div>
                           </div>
 
-                          <div className="crm-interest-body">
-                            {/* Donut Chart */}
-                            <div className="interest-donut-wrap">
-                              <svg viewBox="0 0 100 100" className="interest-donut-svg">
-                                {/* Background ring */}
-                                <circle cx="50" cy="50" r="37" fill="none" stroke="#f1f5f9" strokeWidth="12" />
-                                {/* Segments: Circumference = 2 * PI * 37 = 232.48 */}
-                                {/* Hot 8% = 18.6 */}
-                                <circle
-                                  cx="50"
-                                  cy="50"
-                                  r="37"
-                                  fill="none"
-                                  stroke="#ef4444"
-                                  strokeWidth="12"
-                                  strokeDasharray="18.6 213.88"
-                                  strokeDashoffset="0"
-                                  transform="rotate(-90 50 50)"
-                                />
-                                {/* Warm 24% = 55.8 */}
-                                <circle
-                                  cx="50"
-                                  cy="50"
-                                  r="37"
-                                  fill="none"
-                                  stroke="#f97316"
-                                  strokeWidth="12"
-                                  strokeDasharray="55.8 176.68"
-                                  strokeDashoffset="-18.6"
-                                  transform="rotate(-90 50 50)"
-                                />
-                                {/* Cold 52% = 120.89 */}
-                                <circle
-                                  cx="50"
-                                  cy="50"
-                                  r="37"
-                                  fill="none"
-                                  stroke="#0ea5e9"
-                                  strokeWidth="12"
-                                  strokeDasharray="120.89 111.59"
-                                  strokeDashoffset="-74.4"
-                                  transform="rotate(-90 50 50)"
-                                />
-                                {/* Untagged 16% = 37.2 */}
-                                <circle
-                                  cx="50"
-                                  cy="50"
-                                  r="37"
-                                  fill="none"
-                                  stroke="#94a3b8"
-                                  strokeWidth="12"
-                                  strokeDasharray="37.2 195.28"
-                                  strokeDashoffset="-195.29"
-                                  transform="rotate(-90 50 50)"
-                                />
-                              </svg>
-                              <div className="donut-stat-center">
-                                <span className="donut-count">2,104</span>
-                                <span className="donut-label">LEADS</span>
+                          {/* 3. Filter Tabs & Pivot Row */}
+                          <div className="crm-filter-bar">
+                            <div className="crm-segmented-tabs">
+                              {['Today', '7 days', '30 days', 'This month', 'All time', 'Custom'].map((tab) => (
+                                <button
+                                  key={tab}
+                                  className={`crm-tab-btn ${activeTab === tab ? 'active' : ''}`}
+                                  onClick={() => setActiveTab(tab)}
+                                >
+                                  {tab}
+                                </button>
+                              ))}
+                            </div>
+                            <button className="crm-pivot-btn">
+                              <Table size={11} />
+                              <span>Pivot</span>
+                            </button>
+                          </div>
+
+                          {/* 4. KPI Cards Row (6 Metric Cards) */}
+                          <div className="crm-kpi-row-6">
+                            {/* 1. New leads */}
+                            <div className="crm-kpi-box">
+                              <div className="kpi-box-header">
+                                <span className="kpi-box-icon"><Users size={11} /></span>
+                                <span className="kpi-box-title">New leads</span>
                               </div>
+                              <div className="kpi-box-val">1,284</div>
+                              <div className="kpi-box-sub">This month</div>
                             </div>
 
-                            {/* Legend Table */}
-                            <div className="interest-legend-table">
-                              <div className="interest-legend-item">
-                                <span className="interest-dot dot-hot"></span>
-                                <span className="interest-name">Hot</span>
-                                <span className="interest-count">168</span>
-                                <span className="interest-pct">8%</span>
+                            {/* 2. Open pipeline */}
+                            <div className="crm-kpi-box">
+                              <div className="kpi-box-header">
+                                <span className="kpi-box-icon"><BarChart2 size={11} /></span>
+                                <span className="kpi-box-title">Open pipeline</span>
                               </div>
-                              <div className="interest-legend-item">
-                                <span className="interest-dot dot-warm"></span>
-                                <span className="interest-name">Warm</span>
-                                <span className="interest-count">504</span>
-                                <span className="interest-pct">24%</span>
+                              <div className="kpi-box-val">856</div>
+                              <div className="kpi-box-sub sub-teal">72% contacted</div>
+                            </div>
+
+                            {/* 3. To call */}
+                            <div className="crm-kpi-box">
+                              <div className="kpi-box-header">
+                                <span className="kpi-box-icon"><PhoneCall size={11} /></span>
+                                <span className="kpi-box-title">To call</span>
                               </div>
-                              <div className="interest-legend-item">
-                                <span className="interest-dot dot-cold"></span>
-                                <span className="interest-name">Cold</span>
-                                <span className="interest-count">1,102</span>
-                                <span className="interest-pct">52%</span>
+                              <div className="kpi-box-val">237</div>
+                              <div className="kpi-box-sub">Assigned, not worked</div>
+                            </div>
+
+                            {/* 4. Won */}
+                            <div className="crm-kpi-box">
+                              <div className="kpi-box-header">
+                                <span className="kpi-box-icon"><CheckCircle2 size={11} /></span>
+                                <span className="kpi-box-title">Won</span>
                               </div>
-                              <div className="interest-legend-item">
-                                <span className="interest-dot dot-untagged"></span>
-                                <span className="interest-name">Untagged</span>
-                                <span className="interest-count">330</span>
-                                <span className="interest-pct">16%</span>
+                              <div className="kpi-box-val">24</div>
+                              <div className="kpi-box-sub">189 lost</div>
+                            </div>
+
+                            {/* 5. Won value */}
+                            <div className="crm-kpi-box">
+                              <div className="kpi-box-header">
+                                <span className="kpi-box-icon"><IndianRupee size={11} /></span>
+                                <span className="kpi-box-title">Won value</span>
                               </div>
+                              <div className="kpi-box-val">&#8377;12.8 L</div>
+                              <div className="kpi-box-sub">This month</div>
+                            </div>
+
+                            {/* 6. Follow-ups */}
+                            <div className="crm-kpi-box">
+                              <div className="kpi-box-header">
+                                <span className="kpi-box-icon"><Calendar size={11} /></span>
+                                <span className="kpi-box-title">Follow-ups</span>
+                              </div>
+                              <div className="kpi-box-val">418</div>
+                              <div className="kpi-box-sub">220 overdue &bull; 198 due</div>
                             </div>
                           </div>
 
-                          {/* Recommendation Banner inside card */}
-                          <div className="crm-reengage-banner">
-                            <div className="reengage-left">
-                              <div className="reengage-icon">
-                                <Lightbulb size={12} />
+                          {/* 5. Two Main Dashboard Cards: PIPELINE FUNNEL & INTEREST LEVEL */}
+                          <div className="crm-bottom-cards-grid">
+                            {/* Panel Left: PIPELINE FUNNEL */}
+                            <div className="crm-panel-card">
+                              <div className="crm-panel-header">
+                                <div>
+                                  <h3 className="crm-panel-title">PIPELINE FUNNEL</h3>
+                                  <p className="crm-panel-sub">Leads by stage &bull; This month</p>
+                                </div>
                               </div>
-                              <div className="reengage-copy">
-                                <p className="reengage-title">Cold leads are 12% higher this month.</p>
-                                <p className="reengage-sub">Consider a re-engagement campaign.</p>
+
+                              <div className="crm-funnel-list">
+                                <div className="funnel-row">
+                                  <span className="funnel-stage-name">New</span>
+                                  <div className="funnel-track">
+                                    <div className="funnel-bar bar-blue" style={{ width: '100%' }}></div>
+                                  </div>
+                                  <span className="funnel-stage-count">520</span>
+                                </div>
+
+                                <div className="funnel-row">
+                                  <span className="funnel-stage-name">Contacted</span>
+                                  <div className="funnel-track">
+                                    <div className="funnel-bar bar-purple" style={{ width: '60%' }}></div>
+                                  </div>
+                                  <span className="funnel-stage-count">312</span>
+                                </div>
+
+                                <div className="funnel-row">
+                                  <span className="funnel-stage-name">Not Connected</span>
+                                  <div className="funnel-track">
+                                    <div className="funnel-bar bar-pink" style={{ width: '38%' }}></div>
+                                  </div>
+                                  <span className="funnel-stage-count">198</span>
+                                </div>
+
+                                <div className="funnel-row">
+                                  <span className="funnel-stage-name">Qualified</span>
+                                  <div className="funnel-track">
+                                    <div className="funnel-bar bar-orange" style={{ width: '28%' }}></div>
+                                  </div>
+                                  <span className="funnel-stage-count">146</span>
+                                </div>
+
+                                <div className="funnel-row">
+                                  <span className="funnel-stage-name">Proposal</span>
+                                  <div className="funnel-track">
+                                    <div className="funnel-bar bar-yellow" style={{ width: '18%' }}></div>
+                                  </div>
+                                  <span className="funnel-stage-count">96</span>
+                                </div>
+
+                                <div className="funnel-row">
+                                  <span className="funnel-stage-name">Negotiation</span>
+                                  <div className="funnel-track">
+                                    <div className="funnel-bar bar-green" style={{ width: '10%' }}></div>
+                                  </div>
+                                  <span className="funnel-stage-count">54</span>
+                                </div>
                               </div>
                             </div>
-                            <button className="reengage-btn">View Leads &rarr;</button>
+
+                            {/* Panel Right: INTEREST LEVEL */}
+                            <div className="crm-panel-card">
+                              <div className="crm-panel-header">
+                                <div>
+                                  <h3 className="crm-panel-title">INTEREST LEVEL</h3>
+                                  <p className="crm-panel-sub">Hot / Warm / Cold &bull; Leads worked &bull; This month</p>
+                                </div>
+                              </div>
+
+                              <div className="crm-interest-body">
+                                {/* Donut Chart */}
+                                <div className="interest-donut-wrap">
+                                  <svg viewBox="0 0 100 100" className="interest-donut-svg">
+                                    {/* Background ring */}
+                                    <circle cx="50" cy="50" r="37" fill="none" stroke="#f1f5f9" strokeWidth="12" />
+                                    {/* Segments: Circumference = 2 * PI * 37 = 232.48 */}
+                                    {/* Hot 8% = 18.6 */}
+                                    <circle
+                                      cx="50"
+                                      cy="50"
+                                      r="37"
+                                      fill="none"
+                                      stroke="#ef4444"
+                                      strokeWidth="12"
+                                      strokeDasharray="18.6 213.88"
+                                      strokeDashoffset="0"
+                                      transform="rotate(-90 50 50)"
+                                    />
+                                    {/* Warm 24% = 55.8 */}
+                                    <circle
+                                      cx="50"
+                                      cy="50"
+                                      r="37"
+                                      fill="none"
+                                      stroke="#f97316"
+                                      strokeWidth="12"
+                                      strokeDasharray="55.8 176.68"
+                                      strokeDashoffset="-18.6"
+                                      transform="rotate(-90 50 50)"
+                                    />
+                                    {/* Cold 52% = 120.89 */}
+                                    <circle
+                                      cx="50"
+                                      cy="50"
+                                      r="37"
+                                      fill="none"
+                                      stroke="#0ea5e9"
+                                      strokeWidth="12"
+                                      strokeDasharray="120.89 111.59"
+                                      strokeDashoffset="-74.4"
+                                      transform="rotate(-90 50 50)"
+                                    />
+                                    {/* Untagged 16% = 37.2 */}
+                                    <circle
+                                      cx="50"
+                                      cy="50"
+                                      r="37"
+                                      fill="none"
+                                      stroke="#94a3b8"
+                                      strokeWidth="12"
+                                      strokeDasharray="37.2 195.28"
+                                      strokeDashoffset="-195.29"
+                                      transform="rotate(-90 50 50)"
+                                    />
+                                  </svg>
+                                  <div className="donut-stat-center">
+                                    <span className="donut-count">2,104</span>
+                                    <span className="donut-label">LEADS</span>
+                                  </div>
+                                </div>
+
+                                {/* Legend Table */}
+                                <div className="interest-legend-table">
+                                  <div className="interest-legend-item">
+                                    <span className="interest-dot dot-hot"></span>
+                                    <span className="interest-name">Hot</span>
+                                    <span className="interest-count">168</span>
+                                    <span className="interest-pct">8%</span>
+                                  </div>
+                                  <div className="interest-legend-item">
+                                    <span className="interest-dot dot-warm"></span>
+                                    <span className="interest-name">Warm</span>
+                                    <span className="interest-count">504</span>
+                                    <span className="interest-pct">24%</span>
+                                  </div>
+                                  <div className="interest-legend-item">
+                                    <span className="interest-dot dot-cold"></span>
+                                    <span className="interest-name">Cold</span>
+                                    <span className="interest-count">1,102</span>
+                                    <span className="interest-pct">52%</span>
+                                  </div>
+                                  <div className="interest-legend-item">
+                                    <span className="interest-dot dot-untagged"></span>
+                                    <span className="interest-name">Untagged</span>
+                                    <span className="interest-count">330</span>
+                                    <span className="interest-pct">16%</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Recommendation Banner inside card */}
+                              <div className="crm-reengage-banner">
+                                <div className="reengage-left">
+                                  <div className="reengage-icon">
+                                    <Lightbulb size={12} />
+                                  </div>
+                                  <div className="reengage-copy">
+                                    <p className="reengage-title">Cold leads are 12% higher this month.</p>
+                                    <p className="reengage-sub">Consider a re-engagement campaign.</p>
+                                  </div>
+                                </div>
+                                <button className="reengage-btn">View Leads &rarr;</button>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  ) : (
-                    /* Real CRM Application Screenshot Display */
-                    <div className="crm-screenshot-scroll">
-                      <div className="crm-screen-preview-header">
-                        <div className="screen-preview-meta">
-                          <span className="screen-category-badge">{currentScreenMeta.category}</span>
-                          <span className="screen-badge-pill">{currentScreenMeta.badge}</span>
-                          <span className="screen-hint-text">&bull; Production CRM</span>
-                        </div>
-                        <button
-                          type="button"
-                          className="screen-inspect-btn"
+                      </>
+                    ) : (
+                      /* Real CRM Application Screenshot Display */
+                      <div className="crm-screenshot-scroll">
+                        <div
+                          className="crm-screen-image-container"
                           onClick={() => handleOpenScreenshot(currentScreenMeta.id)}
-                          title="Click to open full resolution modal"
+                          title="Click to open full resolution"
                         >
-                          <Maximize2 size={12} />
-                          <span>Inspect Full Screen</span>
-                        </button>
-                      </div>
-
-                      <div 
-                        className="crm-screen-image-container"
-                        onClick={() => handleOpenScreenshot(currentScreenMeta.id)}
-                        title="Click to open full screen"
-                      >
-                        <img 
-                          src={getScreenshotUrl(currentScreenMeta.file)} 
-                          alt={currentScreenMeta.title} 
-                          className="crm-real-screen-img"
-                        />
-                        <div className="crm-screen-hover-badge">
-                          <Maximize2 size={16} />
-                          <span>Click to Inspect Full Resolution</span>
+                          <img
+                            src={getScreenshotUrl(currentScreenMeta.file)}
+                            alt={currentScreenMeta.title}
+                            className="crm-real-screen-img"
+                          />
+                          <div className="crm-screen-floating-top">
+                            <div className="crm-floating-meta">
+                              <span className="screen-category-badge">{currentScreenMeta.category}</span>
+                              <span className="screen-badge-pill">{currentScreenMeta.badge}</span>
+                            </div>
+                            <div className="crm-floating-actions">
+                              {sidebarItem === 'Dashboard' && (
+                                <button
+                                  type="button"
+                                  className="crm-switch-live-btn"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setDashboardMode('live');
+                                  }}
+                                  title="Switch to interactive UI"
+                                >
+                                  Interactive UI &rarr;
+                                </button>
+                              )}
+                              <button
+                                type="button"
+                                className="screen-inspect-btn"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleOpenScreenshot(currentScreenMeta.id);
+                                }}
+                                title="Inspect in full screen lightbox"
+                              >
+                                <Maximize2 size={11} />
+                                <span>Inspect Full Screen</span>
+                              </button>
+                            </div>
+                          </div>
+                          <div className="crm-screen-hover-badge">
+                            <Maximize2 size={13} />
+                            <span>Click to Zoom &amp; Inspect (Full Resolution)</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )}
+                    )}
                   </div>
                 </div>
               </div>

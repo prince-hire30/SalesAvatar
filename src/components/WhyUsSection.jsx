@@ -6,7 +6,8 @@ import {
   MapPin,
   LineChart,
   Crown,
-  ArrowUpRight
+  ArrowUpRight,
+  Star
 } from 'lucide-react';
 import { IMAGES, FALLBACK_IMAGES } from '../utils/assets';
 
@@ -124,9 +125,9 @@ export default function WhyUsSection() {
             <svg viewBox="0 0 160 220" className="purple-upward-arrow">
               <defs>
                 <linearGradient id="purpleArrowGrad" x1="0" y1="1" x2="0.6" y2="0">
-                  <stop offset="0%" stopColor="#818cf8" stopOpacity="0.4" />
-                  <stop offset="50%" stopColor="#7c3aed" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="#6366f1" stopOpacity="1" />
+                  <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.5" />
+                  <stop offset="50%" stopColor="#f97316" stopOpacity="0.9" />
+                  <stop offset="100%" stopColor="#ea580c" stopOpacity="1" />
                 </linearGradient>
               </defs>
               <path
@@ -185,8 +186,45 @@ export default function WhyUsSection() {
                 <span className="metric-val blue">{currentPersona.badges[2].value}</span>
               </div>
             </div>
+          </div>
 
-
+          {/* Social Proof Avatars & Rating under Persona Image */}
+          <div className="why-us-social-proof">
+            <div className="avatar-stack">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                alt="Client 1"
+                className="avatar-img"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
+                alt="Client 2"
+                className="avatar-img"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80"
+                alt="Client 3"
+                className="avatar-img"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80"
+                alt="Client 4"
+                className="avatar-img"
+              />
+            </div>
+            <div className="social-proof-text">
+              <div className="proof-sub">
+                <strong>240+ Companies</strong> trust SalesAvatar daily
+              </div>
+              <div className="proof-stars">
+                <div className="stars-row">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} fill="#f59e0b" color="#f59e0b" />
+                  ))}
+                </div>
+                <span className="rating-score">4.9/5 from 1,800+ sales reps</span>
+              </div>
+            </div>
           </div>
         </div>
 

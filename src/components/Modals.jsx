@@ -56,7 +56,7 @@ function TrialModalContent({ onClose, defaultPlan, billingCycle }) {
         particleCount: 90,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#4f46e5', '#7c3aed', '#10b981', '#f59e0b']
+        colors: ['#ff6b2b', '#f97316', '#ea580c', '#f59e0b', '#10b981']
       });
     } catch {
       // If server unreachable, still provide graceful feedback

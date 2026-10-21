@@ -15,7 +15,6 @@ import {
   Eye
 } from 'lucide-react';
 import BottomCTASection from '../components/BottomCTASection';
-import CrmProductGallery from '../components/CrmProductGallery';
 import CrmLightboxModal from '../components/CrmLightboxModal';
 import { CRM_SCREENSHOTS, getScreenshotUrl } from '../data/crmScreenshots';
 
@@ -83,8 +82,8 @@ const featureList = [
       title: 'Follow-Up Tasks & Reminder Automation',
       badge: '04. Follow-Ups',
       icon: Calendar,
-      color: '#7c3aed',
-      bgLight: '#f3e8ff',
+      color: '#ea580c',
+      bgLight: '#fff7ed',
       screenshotFile: '96d04885-5c0b-44a5-bfa0-c637795ba64d.jpg',
       screenshotScreenId: 'followup-queue',
       screenshotTitle: 'Due Follow-Ups & One-Click Calling Queue',
@@ -505,12 +504,6 @@ export default function FeaturesPage({ onOpenTrial, onOpenDemo }) {
           </div>
         </div>
       </section>
-
-      {/* Embedded Real CRM Product Showcase (Complete Platform Tour) */}
-      <CrmProductGallery 
-        onOpenTrial={onOpenTrial}
-        onOpenDemo={onOpenDemo}
-      />
 
       {/* Bottom CTA */}
       <BottomCTASection 

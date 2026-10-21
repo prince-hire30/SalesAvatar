@@ -104,8 +104,8 @@ export default function WhyUsPage({ onOpenTrial, onOpenDemo }) {
       id: 'bfsi',
       title: 'Banking, Financial Services & Insurance',
       icon: Landmark,
-      color: '#7c3aed',
-      bgLight: '#f3e8ff',
+      color: '#ea580c',
+      bgLight: '#fff7ed',
       tagline: 'Strict regulatory compliance & customer verification',
       points: [
         'Indian DPDP Act compliant local cloud storage with encrypted fields',

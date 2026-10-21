@@ -33,7 +33,7 @@ export default function TestimonialsPage({ onOpenTrial, onOpenDemo }) {
       metric: 'Role-Based Access Control',
       stars: 5,
       avatar: 'BF',
-      avatarColor: '#7c3aed',
+      avatarColor: '#ea580c',
       quote: 'We operate in a compliant environment. Having role-based document access, encrypted records, and complete tenant data isolation gives our compliance officers total peace of mind.'
     },
     {
@@ -115,7 +115,7 @@ export default function TestimonialsPage({ onOpenTrial, onOpenDemo }) {
                 <span>Multi-Tenant Data Isolation</span>
               </div>
               <div className="subpage-check-item">
-                <Building2 size={14} color="#7c3aed" />
+                <Building2 size={14} color="#ea580c" />
                 <span>Configurable Workspace Modules</span>
               </div>
               <div className="subpage-check-item">

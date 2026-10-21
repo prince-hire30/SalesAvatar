@@ -72,7 +72,7 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
                 <span>18% GST Invoices with ITC</span>
               </div>
               <div className="subpage-check-item">
-                <Building2 size={14} color="#7c3aed" />
+                <Building2 size={14} color="#ea580c" />
                 <span>100% Indian Cloud Data Residency</span>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
               <div style={{ marginBottom: 16 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
                   <span style={{ fontSize: 13, fontWeight: 700, color: '#334155' }}>Your Active Sales Reps:</span>
-                  <span style={{ fontSize: 15, fontWeight: 800, color: '#4f46e5', background: '#eef2ff', padding: '2px 10px', borderRadius: 8 }}>
+                  <span style={{ fontSize: 15, fontWeight: 800, color: '#ea580c', background: '#fff7ed', padding: '2px 10px', borderRadius: 8 }}>
                     {teamSize} Reps
                   </span>
                 </div>
@@ -125,7 +125,7 @@ export default function PricingPage({ onOpenTrial, onOpenDemo, onOpenEnterprise 
                   step="1" 
                   value={teamSize}
                   onChange={(e) => setTeamSize(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: '#4f46e5', cursor: 'pointer' }}
+                  style={{ width: '100%', accentColor: '#ea580c', cursor: 'pointer' }}
                 />
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: '#94a3b8', marginTop: 4 }}>
                   <span>5 Reps (Starter)</span>

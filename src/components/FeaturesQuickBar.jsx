@@ -46,8 +46,8 @@ export default function FeaturesQuickBar({ onSelectFeature }) {
       id: 'sales-pipeline',
       title: 'Sales Pipeline',
       subtitle: 'Visual Kanban Stages',
-      color: '#8b5cf6',
-      bgLight: '#f5f3ff',
+      color: '#ea580c',
+      bgLight: '#fff7ed',
       icon: BarChart2,
       desc: 'Drag-and-drop visual pipeline stages, deal velocity tracking, revenue forecasts, probability weighting, and win/loss reason analysis.'
     },
@@ -64,8 +64,8 @@ export default function FeaturesQuickBar({ onSelectFeature }) {
       id: 'dealer-management',
       title: 'Dealers & Network',
       subtitle: 'Distributor Orders',
-      color: '#7c3aed',
-      bgLight: '#f3e8ff',
+      color: '#f97316',
+      bgLight: '#fff7ed',
       icon: Building2,
       desc: 'Manage dealer and distributor networks, partner order requests, regional territory allocation, and channel partner communications.'
     },

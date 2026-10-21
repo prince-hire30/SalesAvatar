@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@600;700&display=swap');
 
 :root {
-  --primary: #6366f1;
-  --primary-dark: #4f46e5;
-  --primary-deep: #4338ca;
-  --primary-light: #e0e7ff;
-  --primary-gradient: linear-gradient(135deg, #5b50e6 0%, #7c3aed 45%, #2563eb 100%);
-  --primary-gradient-hover: linear-gradient(135deg, #4f46e5 0%, #6d28d9 45%, #1d4ed8 100%);
+  --primary: #f97316;
+  --primary-dark: #ea580c;
+  --primary-deep: #c2410c;
+  --primary-light: #ffedd5;
+  --primary-gradient: linear-gradient(135deg, #ff6b2b 0%, #f97316 45%, #ea580c 75%, #f59e0b 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%);
   
-  --secondary-purple: #7c3aed;
-  --accent-blue: #2563eb;
+  --secondary-purple: #ea580c;
+  --accent-blue: #f59e0b;
   --accent-green: #10b981;
   --accent-orange: #f97316;
-  --accent-cyan: #06b6d4;
-  --accent-pink: #ec4899;
+  --accent-cyan: #fb923c;
+  --accent-pink: #f43f5e;
   
   --text-dark: #0f172a;
   --text-body: #475569;
@@ -38,8 +38,8 @@
   
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 12px 32px -4px rgba(99, 102, 241, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
-  --shadow-xl: 0 24px 48px -12px rgba(79, 70, 229, 0.22);
+  --shadow-lg: 0 12px 32px -4px rgba(249, 115, 22, 0.16), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+  --shadow-xl: 0 24px 48px -12px rgba(234, 88, 12, 0.25);
 }
 
 * {
@@ -57,11 +57,15 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background: #ffffff;
+  background: #f8fafc;
 }
 
 #root {

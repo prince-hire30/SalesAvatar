@@ -67,8 +67,8 @@ const testimonials = [
       category: 'rental',
       categoryName: 'CRM Rental',
       icon: Zap,
-      iconColor: '#6366f1',
-      iconBg: '#eef2ff',
+      iconColor: '#ea580c',
+      iconBg: '#fff7ed',
       q: 'How does the CRM rental and subscription model work?',
       a: 'Instead of paying high upfront software licensing and infrastructure costs, businesses rent a secure cloud CRM workspace on monthly or annual subscriptions. You choose a plan (Starter ₹999/mo for up to 5 users, Professional ₹2,499/mo for up to 20 users, or Enterprise custom), and can scale user seats as your company grows.',
       highlights: ['🏢 Flexible monthly/annual subscriptions', '⚡ Instant tenant workspace creation', '📈 Scale seats as you grow']
@@ -158,7 +158,7 @@ export default function TestimonialsAndFAQ({ onOpenDemo, onOpenTrial }) {
         <div className="section-container">
           <div className="section-center-header">
             <div className="section-pill-badge purple">
-              <CheckCircle2 size={13} color="#7c3aed" />
+              <CheckCircle2 size={13} color="#ea580c" />
               <span>AUTHENTIC CUSTOMER STORIES</span>
             </div>
             <h2 className="section-main-title">Real Sales Teams. Real Measurable Growth.</h2>

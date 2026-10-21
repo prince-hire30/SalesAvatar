@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { 
   X, 
   ChevronLeft, 
@@ -7,7 +7,10 @@ import {
   CheckCircle2, 
   Sparkles,
   ArrowRight,
-  Maximize2
+  LayoutGrid,
+  ShieldCheck,
+  Zap,
+  Layers
 } from 'lucide-react';
 import { getScreenshotUrl } from '../data/crmScreenshots';
 
@@ -22,6 +25,7 @@ export default function CrmLightboxModal({
 }) {
   const filmstripRef = useRef(null);
   const activeThumbRef = useRef(null);
+  const [showFilmstrip, setShowFilmstrip] = useState(true);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -82,11 +86,33 @@ export default function CrmLightboxModal({
                 <span className="meta-sep">&bull;</span>
                 <span className="meta-subbadge">{current.badge}</span>
               </span>
-              <span className="crm-lightbox-counter-pill">
-                Screen <strong>{currentIndex + 1}</strong> of {screenshots.length}
-              </span>
             </div>
             <h3 className="crm-lightbox-title">{current.title}</h3>
+          </div>
+
+          {/* Fixed Center Navigation Pill */}
+          <div className="crm-lightbox-nav-pill-group">
+            <button 
+              type="button" 
+              className="crm-header-arrow-btn"
+              onClick={() => onNavigate((currentIndex - 1 + screenshots.length) % screenshots.length)}
+              title="Previous Screen (Left Arrow)"
+              aria-label="Previous Screen"
+            >
+              <ChevronLeft size={15} />
+            </button>
+            <span className="crm-lightbox-counter-pill">
+              Screen <strong>{currentIndex + 1}</strong> of {screenshots.length}
+            </span>
+            <button 
+              type="button" 
+              className="crm-header-arrow-btn"
+              onClick={() => onNavigate((currentIndex + 1) % screenshots.length)}
+              title="Next Screen (Right Arrow)"
+              aria-label="Next Screen"
+            >
+              <ChevronRight size={15} />
+            </button>
           </div>
 
           <div className="crm-lightbox-header-right">
@@ -101,6 +127,15 @@ export default function CrmLightboxModal({
             </div>
 
             <div className="crm-lightbox-actions">
+              <button 
+                type="button" 
+                className={`crm-lightbox-btn-icon ${!showFilmstrip ? 'active-toggle' : ''}`}
+                onClick={() => setShowFilmstrip(!showFilmstrip)} 
+                title={showFilmstrip ? 'Hide thumbnail filmstrip' : 'Show thumbnail filmstrip'}
+              >
+                <LayoutGrid size={15} />
+                <span className="btn-label-desktop">{showFilmstrip ? 'Hide Scroller' : 'Show Scroller'}</span>
+              </button>
               <a 
                 href={imageUrl} 
                 target="_blank" 
@@ -125,44 +160,10 @@ export default function CrmLightboxModal({
 
         {/* Main Content Area: Split View */}
         <div className="crm-lightbox-body">
-          {/* Left Canvas: Screenshot with floating navigation */}
+          {/* Left Canvas: Completely Unobstructed Screenshot Showcase */}
           <div className="crm-lightbox-stage-container">
-            {/* Previous Navigation Floating Button */}
-            <button 
-              type="button" 
-              className="crm-lightbox-nav-btn prev"
-              onClick={() => onNavigate((currentIndex - 1 + screenshots.length) % screenshots.length)}
-              title="Previous Screen (Left Arrow)"
-              aria-label="Previous Screen"
-            >
-              <ChevronLeft size={22} />
-            </button>
-
-            {/* Browser Mockup Framing for Screenshot */}
+            {/* Complete Full Area Image Showcase - Zero Margin */}
             <div className="crm-browser-frame">
-              <div className="crm-browser-chrome">
-                <div className="browser-dots">
-                  <span className="dot dot-red" />
-                  <span className="dot dot-amber" />
-                  <span className="dot dot-green" />
-                </div>
-                <div className="browser-url-pill">
-                  <span className="url-lock-icon">🔒</span>
-                  <span className="url-text">https://app.salesavatar.com/{current.navItem?.toLowerCase().replace(/\s+/g, '-') || 'workspace'}</span>
-                </div>
-                <div className="browser-actions">
-                  <a
-                    href={imageUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="browser-zoom-btn"
-                    title="View original 100% resolution"
-                  >
-                    <Maximize2 size={13} />
-                  </a>
-                </div>
-              </div>
-
               <div className="crm-browser-viewport">
                 <img 
                   src={imageUrl} 
@@ -171,17 +172,6 @@ export default function CrmLightboxModal({
                 />
               </div>
             </div>
-
-            {/* Next Navigation Floating Button */}
-            <button 
-              type="button" 
-              className="crm-lightbox-nav-btn next"
-              onClick={() => onNavigate((currentIndex + 1) % screenshots.length)}
-              title="Next Screen (Right Arrow)"
-              aria-label="Next Screen"
-            >
-              <ChevronRight size={22} />
-            </button>
           </div>
 
           {/* Right Panel: Clean, Beautiful Info Drawer */}
@@ -192,6 +182,21 @@ export default function CrmLightboxModal({
                 <span className="pane-active-tag">{current.navItem || 'Overview'}</span>
               </div>
               <p className="crm-pane-desc">{current.description}</p>
+              
+              <div className="crm-pane-specs-grid">
+                <div className="spec-pill">
+                  <Zap size={11} className="spec-icon" />
+                  <span>Real-Time Sync</span>
+                </div>
+                <div className="spec-pill">
+                  <ShieldCheck size={11} className="spec-icon" />
+                  <span>SOC-2 Certified</span>
+                </div>
+                <div className="spec-pill">
+                  <Layers size={11} className="spec-icon" />
+                  <span>Enterprise Role</span>
+                </div>
+              </div>
             </div>
 
             <div className="crm-pane-card">
@@ -252,50 +257,52 @@ export default function CrmLightboxModal({
         </div>
 
         {/* Filmstrip Footer with Smooth Thumbnail Navigation */}
-        <div className="crm-lightbox-filmstrip">
-          <div className="crm-filmstrip-wrapper">
-            <button
-              type="button"
-              className="filmstrip-arrow-btn left"
-              onClick={() => scrollFilmstrip('left')}
-              title="Scroll thumbnails left"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft size={16} />
-            </button>
+        {showFilmstrip && (
+          <div className="crm-lightbox-filmstrip">
+            <div className="crm-filmstrip-wrapper">
+              <button
+                type="button"
+                className="filmstrip-arrow-btn left"
+                onClick={() => scrollFilmstrip('left')}
+                title="Scroll thumbnails left"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft size={16} />
+              </button>
 
-            <div className="crm-filmstrip-scroll" ref={filmstripRef}>
-              {screenshots.map((s, idx) => {
-                const thumbUrl = getScreenshotUrl(s.file);
-                const isActive = idx === currentIndex;
-                return (
-                  <button
-                    key={s.id}
-                    ref={isActive ? activeThumbRef : null}
-                    type="button"
-                    className={`crm-filmstrip-item ${isActive ? 'active' : ''}`}
-                    onClick={() => onNavigate(idx)}
-                    title={`${idx + 1}. ${s.title}`}
-                  >
-                    <img src={thumbUrl} alt={s.title} loading="lazy" />
-                    <span className="crm-filmstrip-tag">{idx + 1}</span>
-                    {isActive && <span className="active-dot-indicator" />}
-                  </button>
-                );
-              })}
+              <div className="crm-filmstrip-scroll" ref={filmstripRef}>
+                {screenshots.map((s, idx) => {
+                  const thumbUrl = getScreenshotUrl(s.file);
+                  const isActive = idx === currentIndex;
+                  return (
+                    <button
+                      key={s.id}
+                      ref={isActive ? activeThumbRef : null}
+                      type="button"
+                      className={`crm-filmstrip-item ${isActive ? 'active' : ''}`}
+                      onClick={() => onNavigate(idx)}
+                      title={`${idx + 1}. ${s.title}`}
+                    >
+                      <img src={thumbUrl} alt={s.title} loading="lazy" />
+                      <span className="crm-filmstrip-tag">{idx + 1}</span>
+                      {isActive && <span className="active-dot-indicator" />}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <button
+                type="button"
+                className="filmstrip-arrow-btn right"
+                onClick={() => scrollFilmstrip('right')}
+                title="Scroll thumbnails right"
+                aria-label="Scroll right"
+              >
+                <ChevronRight size={16} />
+              </button>
             </div>
-
-            <button
-              type="button"
-              className="filmstrip-arrow-btn right"
-              onClick={() => scrollFilmstrip('right')}
-              title="Scroll thumbnails right"
-              aria-label="Scroll right"
-            >
-              <ChevronRight size={16} />
-            </button>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

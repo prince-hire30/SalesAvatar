@@ -78,7 +78,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                 <span>NDA & Data Privacy Guaranteed</span>
               </div>
               <div className="subpage-check-item">
-                <Building2 size={14} color="#7c3aed" />
+                <Building2 size={14} color="#ea580c" />
                 <span>Noida & Mumbai Tech Centers</span>
               </div>
             </div>
@@ -147,7 +147,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                 </a>
 
                 <div className="stream-item">
-                  <div className="stream-icon-box" style={{ background: '#f5f3ff', color: '#7c3aed' }}>
+                  <div className="stream-icon-box" style={{ background: '#fff7ed', color: '#ea580c' }}>
                     <Building2 size={16} />
                   </div>
                   <div className="stream-content">
@@ -202,7 +202,7 @@ export default function ContactPage({ onOpenTrial, onOpenDemo }) {
                 <div className="contact-details-list">
                   <div className="contact-detail-row">
                     <div className="detail-icon-bubble">
-                      <MapPin size={20} color="#7c3aed" />
+                      <MapPin size={20} color="#ea580c" />
                     </div>
                     <div className="detail-text">
                       <b>Corporate Headquarters</b>

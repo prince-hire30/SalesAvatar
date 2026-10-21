@@ -11,27 +11,27 @@ export default function HowItWorksSection() {
   const steps = [
     {
       num: 1,
-      numColor: '#8b5cf6',
-      iconBg: '#f3e8ff',
-      iconColor: '#7c3aed',
+      numColor: '#ea580c',
+      iconBg: '#fff7ed',
+      iconColor: '#ea580c',
       icon: Users,
       title: 'Register & Select Plan',
       desc: 'Choose Starter, Professional, or Enterprise and provision your company tenant'
     },
     {
       num: 2,
-      numColor: '#3b82f6',
-      iconBg: '#eff6ff',
-      iconColor: '#2563eb',
+      numColor: '#f59e0b',
+      iconBg: '#fffbeb',
+      iconColor: '#d97706',
       icon: Filter,
       title: 'Onboard Team & Modules',
       desc: 'Set role-based permissions, configure pipelines, and import customer records'
     },
     {
       num: 3,
-      numColor: '#8b5cf6',
-      iconBg: '#f3e8ff',
-      iconColor: '#7c3aed',
+      numColor: '#f97316',
+      iconBg: '#fff7ed',
+      iconColor: '#ea580c',
       icon: TrendingUp,
       title: 'Manage, Track & Scale',
       desc: 'Execute follow-ups, field GPS attendance, sales targets, and subscription renewals'
@@ -44,7 +44,7 @@ export default function HowItWorksSection() {
         {/* Top Header */}
         <div className="section-center-header">
           <div className="section-pill-badge purple">
-            <Rocket size={13} color="#7c3aed" />
+            <Rocket size={13} color="#ea580c" />
             <span>FAST ONBOARDING</span>
           </div>
           <h2 className="section-main-title">Up and Running in Under 15 Minutes</h2>
@@ -98,7 +98,7 @@ export default function HowItWorksSection() {
               </svg>
             </div>
             <div className="rocket-bubble">
-              <Rocket size={24} color="#6366f1" className="rocket-icon" />
+              <Rocket size={24} color="#ea580c" className="rocket-icon" />
             </div>
             <span className="ready-grow-text">
               And You're Ready <br />
