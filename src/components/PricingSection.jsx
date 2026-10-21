@@ -6,7 +6,8 @@ import {
   BarChart2, 
   Crown, 
   Users, 
-  Building2 
+  Building2,
+  Sparkles
 } from 'lucide-react';
 
 export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
@@ -19,15 +20,13 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       tagline: 'Up to 5 users & basic CRM',
       icon: Zap,
       monthlyPrice: '₹999',
-      yearlyPrice: '₹9,590',
-      monthlyUnit: '/month + GST',
-      yearlyUnit: '/year + GST',
+      yearlyPrice: '₹799',
+      yearlyTotal: '₹9,590/yr',
       users: 'Up to 5 users',
       storage: 'Lead & customer management',
-      highlight: 'Follow-up reminders & basic dashboard',
+      highlight: 'Follow-up reminders & dashboard',
       themeColor: '#10b981',
       bgLight: '#ecfdf5',
-      btnClass: 'btn-plan-green',
       isPopular: false
     },
     {
@@ -36,15 +35,13 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       tagline: 'Up to 10 users & sales pipeline',
       icon: BarChart2,
       monthlyPrice: '₹1,699',
-      yearlyPrice: '₹16,310',
-      monthlyUnit: '/month + GST',
-      yearlyUnit: '/year + GST',
+      yearlyPrice: '₹1,359',
+      yearlyTotal: '₹16,310/yr',
       users: 'Up to 10 users',
       storage: 'Visual sales pipeline',
-      highlight: 'Automated deal stages & SMS/Email alerts',
+      highlight: 'Automated deal stages & alerts',
       themeColor: '#2563eb',
       bgLight: '#eff6ff',
-      btnClass: 'btn-plan-blue',
       isPopular: false
     },
     {
@@ -53,15 +50,13 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       tagline: 'Up to 20 users with reports & targets',
       icon: Crown,
       monthlyPrice: '₹2,499',
-      yearlyPrice: '₹23,990',
-      monthlyUnit: '/month + GST',
-      yearlyUnit: '/year + GST',
+      yearlyPrice: '₹1,999',
+      yearlyTotal: '₹23,990/yr',
       users: 'Up to 20 users',
       storage: 'Advanced reports & analytics',
-      highlight: 'Sales targets & role-based permissions',
+      highlight: 'Sales targets & role permissions',
       themeColor: '#ea580c',
       bgLight: '#fff7ed',
-      btnClass: 'btn-plan-purple',
       isPopular: true,
       popularLabel: 'Most Popular'
     },
@@ -71,15 +66,13 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       tagline: 'Up to 50 users & field officer GPS',
       icon: Users,
       monthlyPrice: '₹4,999',
-      yearlyPrice: '₹47,990',
-      monthlyUnit: '/month + GST',
-      yearlyUnit: '/year + GST',
+      yearlyPrice: '₹3,999',
+      yearlyTotal: '₹47,990/yr',
       users: 'Up to 50 users',
       storage: 'Field officer & geo-attendance',
       highlight: 'Dealer & distributor management',
       themeColor: '#f59e0b',
       bgLight: '#fffbeb',
-      btnClass: 'btn-plan-orange',
       isPopular: false
     },
     {
@@ -89,14 +82,12 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
       icon: Building2,
       monthlyPrice: 'Custom pricing',
       yearlyPrice: 'Custom pricing',
-      monthlyUnit: '',
-      yearlyUnit: '',
+      yearlyTotal: '',
       users: 'Configurable user limits',
       storage: 'Optional custom workflows',
       highlight: 'Integration & onboarding options',
       themeColor: '#1e293b',
       bgLight: '#f1f5f9',
-      btnClass: 'btn-plan-dark',
       isPopular: false,
       isCustom: true
     }
@@ -135,7 +126,8 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
                 className={`toggle-option ${billingCycle === 'yearly' ? 'active' : ''}`}
                 onClick={() => setBillingCycle('yearly')}
               >
-                Yearly (Save 20%)
+                Yearly
+                <span className="save-badge-pill">Save 20%</span>
               </button>
             </div>
           </div>
@@ -145,8 +137,10 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
         <div className="pricing-grid-5">
           {plans.map((p) => {
             const Icon = p.icon;
-            const price = billingCycle === 'yearly' ? p.yearlyPrice : p.monthlyPrice;
-            const unit = billingCycle === 'yearly' ? p.yearlyUnit : p.monthlyUnit;
+            const isYearly = billingCycle === 'yearly';
+            const price = p.isCustom 
+              ? 'Custom pricing' 
+              : (isYearly ? p.yearlyPrice : p.monthlyPrice);
 
             return (
               <div 
@@ -157,39 +151,53 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
                 {/* Most Popular Top Pill */}
                 {p.isPopular && (
                   <div className="popular-pill-tag">
-                    {p.popularLabel}
+                    <Sparkles size={11} strokeWidth={2.6} />
+                    <span>{p.popularLabel}</span>
                   </div>
                 )}
 
                 {/* Card Header */}
-                <div className="plan-header-row">
-                  <div className="plan-icon-bubble" style={{ background: p.bgLight, color: p.themeColor }}>
-                    <Icon size={18} strokeWidth={2.4} />
-                  </div>
-                  <div className="plan-title-block">
+                <div className="plan-header-block">
+                  <div className="plan-header-top">
+                    <div className="plan-icon-bubble" style={{ background: p.bgLight, color: p.themeColor }}>
+                      <Icon size={19} strokeWidth={2.4} />
+                    </div>
                     <h3 className="plan-name">{p.name}</h3>
-                    <span className="plan-tagline">{p.tagline}</span>
                   </div>
+                  <p className="plan-tagline">{p.tagline}</p>
                 </div>
 
                 {/* Price Display */}
                 <div className="plan-price-block">
-                  <span className={`plan-amount ${p.isCustom ? 'custom-text' : ''}`}>{price}</span>
-                  {unit && <span className="plan-unit">{unit}</span>}
+                  <div className="price-main-row">
+                    <span className={`plan-amount ${p.isCustom ? 'custom-text' : ''}`}>{price}</span>
+                    {!p.isCustom && <span className="plan-cadence">/mo</span>}
+                  </div>
+                  <div className="plan-tax-note">
+                    {p.isCustom 
+                      ? 'Tailored to your team size' 
+                      : (isYearly ? `Billed annually (${p.yearlyTotal}) + GST` : '+ 18% GST • billed monthly')}
+                  </div>
                 </div>
 
                 {/* Features List */}
                 <ul className="plan-features-list">
                   <li>
-                    <Check size={16} className="feature-check" style={{ color: p.themeColor }} />
+                    <div className="plan-check-bubble" style={{ background: p.bgLight, color: p.themeColor }}>
+                      <Check size={12} strokeWidth={3} />
+                    </div>
                     <span>{p.users}</span>
                   </li>
                   <li>
-                    <Check size={16} className="feature-check" style={{ color: p.themeColor }} />
+                    <div className="plan-check-bubble" style={{ background: p.bgLight, color: p.themeColor }}>
+                      <Check size={12} strokeWidth={3} />
+                    </div>
                     <span>{p.storage}</span>
                   </li>
                   <li>
-                    <Check size={16} className="feature-check" style={{ color: p.themeColor }} />
+                    <div className="plan-check-bubble" style={{ background: p.bgLight, color: p.themeColor }}>
+                      <Check size={12} strokeWidth={3} />
+                    </div>
                     <span>{p.highlight || 'Configurable modules'}</span>
                   </li>
                 </ul>
@@ -199,18 +207,29 @@ export default function PricingSection({ onSelectPlan, onOpenEnterprise }) {
                   {p.isCustom ? (
                     <button 
                       type="button" 
-                      className={`btn-plan ${p.btnClass}`}
+                      className="btn-plan btn-plan-dark"
                       onClick={() => onOpenEnterprise(p.name)}
                     >
-                      Contact Sales <ArrowRight size={15} />
+                      <span>Contact Sales</span>
+                      <ArrowRight size={15} />
+                    </button>
+                  ) : p.isPopular ? (
+                    <button 
+                      type="button" 
+                      className="btn-plan btn-plan-popular"
+                      onClick={() => onSelectPlan(p.name, billingCycle)}
+                    >
+                      <span>Get Started</span>
+                      <ArrowRight size={15} />
                     </button>
                   ) : (
                     <button 
                       type="button" 
-                      className={`btn-plan ${p.btnClass}`}
+                      className="btn-plan btn-plan-outline"
                       onClick={() => onSelectPlan(p.name, billingCycle)}
                     >
-                      Get Started <ArrowRight size={15} />
+                      <span>Get Started</span>
+                      <ArrowRight size={15} />
                     </button>
                   )}
                 </div>
